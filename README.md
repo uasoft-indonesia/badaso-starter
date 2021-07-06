@@ -9,5 +9,10 @@ composer create-project badaso/starter badaso_project
 
 cd badaso_project
 
+# via local machine
 php artisan serve
+
+# via docker
+docker compose build
+docker composer up -d
 ```
