@@ -15,3 +15,10 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
+
+// Badaso
+mix
+    .js(
+        "vendor/badaso/core/src/resources/js/app.js",
+        "public/js/badaso.js"
+    ).vue()
