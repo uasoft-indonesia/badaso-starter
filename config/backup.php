@@ -1,15 +1,19 @@
 <?php
 
 return [
+
     'backup' => [
+
         /*
          * The name of this application. You can use this name to monitor
          * the backups.
          */
-        'name' => '', // set empty if using google
+        'name' => env('APP_NAME', 'laravel-backup'),
 
         'source' => [
+
             'files' => [
+
                 /*
                  * The list of directories and files that will be included in the backup.
                  */
@@ -30,7 +34,19 @@ return [
                 /*
                  * Determines if symlinks should be followed.
                  */
-                'followLinks' => false,
+                'follow_links' => false,
+
+                /*
+                 * Determines if it should avoid unreadable folders.
+                 */
+                'ignore_unreadable_directories' => false,
+
+                /*
+                 * This path is used to make directories in resulting zip-file relative
+                 * Set to `null` to include complete absolute path
+                 * Example: base_path()
+                 */
+                'relative_path' => null,
             ],
 
             /*
@@ -47,7 +63,18 @@ return [
              *                'table_to_exclude_from_backup',
              *                'another_table_to_exclude'
              *            ]
-             *       ]
+             *       ],
+             * ],
+             *
+             * If you are using only InnoDB tables on a MySQL server, you can
+             * also supply the useSingleTransaction option to avoid table locking.
+             *
+             * E.g.
+             * 'mysql' => [
+             *       ...
+             *      'dump' => [
+             *           'useSingleTransaction' => true,
+             *       ],
              * ],
              *
              * For a complete list of available customization options, see https://github.com/spatie/db-dumper
@@ -70,7 +97,16 @@ return [
          */
         'database_dump_compressor' => null,
 
+        /*
+         * The file extension used for the database dump files.
+         *
+         * If not specified, the file extension will be .archive for MongoDB and .sql for all other databases
+         * The file extension should be specified without a leading .
+         */
+        'database_dump_file_extension' => '',
+
         'destination' => [
+
             /*
              * The filename prefix used for the backup zip file.
              */
@@ -78,32 +114,49 @@ return [
 
             /*
              * The disk names on which the backups will be stored.
-             * support s3, google, dropbox
              */
-            'disks' => explode(',', env('BACKUP_DISK', '')),
+            'disks' => [
+                'local',
+            ],
         ],
 
         /*
          * The directory where the temporary files will be stored.
          */
         'temporary_directory' => storage_path('app/backup-temp'),
+
+        /*
+         * The password to be used for archive encryption.
+         * Set to `null` to disable encryption.
+         */
+        'password' => env('BACKUP_ARCHIVE_PASSWORD'),
+
+        /*
+         * The encryption algorithm to be used for archive encryption.
+         * You can set it to `null` or `false` to disable encryption.
+         *
+         * When set to 'default', we'll use ZipArchive::EM_AES_256 if it is
+         * available on your system.
+         */
+        'encryption' => 'default',
     ],
 
     /*
      * You can get notified when specific events occur. Out of the box you can use 'mail' and 'slack'.
-     * For Slack you need to install guzzlehttp/guzzle.
+     * For Slack you need to install laravel/slack-notification-channel.
      *
      * You can also use your own notification classes, just make sure the class is named after one of
      * the `Spatie\Backup\Events` classes.
      */
     'notifications' => [
+
         'notifications' => [
-            \Spatie\Backup\Notifications\Notifications\BackupHasFailed::class         => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\BackupHasFailed::class => ['mail'],
             \Spatie\Backup\Notifications\Notifications\UnhealthyBackupWasFound::class => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\CleanupHasFailed::class        => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\BackupWasSuccessful::class     => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\HealthyBackupWasFound::class   => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\CleanupWasSuccessful::class    => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\CleanupHasFailed::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\BackupWasSuccessful::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\HealthyBackupWasFound::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\CleanupWasSuccessful::class => ['mail'],
         ],
 
         /*
@@ -113,7 +166,12 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => '',
+            'to' => 'your@example.com',
+
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+                'name' => env('MAIL_FROM_NAME', 'Example'),
+            ],
         ],
 
         'slack' => [
@@ -127,6 +185,7 @@ return [
             'username' => null,
 
             'icon' => null,
+
         ],
     ],
 
@@ -135,20 +194,24 @@ return [
      * If a backup does not meet the specified requirements the
      * UnHealthyBackupWasFound event will be fired.
      */
-    'monitorBackups' => [
+    'monitor_backups' => [
         [
-            'name'                                   => config('app.name'),
-            'disks'                                  => explode(',', env('BACKUP_DISK', '')),
-            'newestBackupsShouldNotBeOlderThanDays'  => 1,
-            'storageUsedMayNotBeHigherThanMegabytes' => 5000,
+            'name' => env('APP_NAME', 'laravel-backup'),
+            'disks' => ['local'],
+            'health_checks' => [
+                \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumAgeInDays::class => 1,
+                \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumStorageInMegabytes::class => 5000,
+            ],
         ],
 
         /*
         [
             'name' => 'name of the second app',
             'disks' => ['local', 's3'],
-            'newestBackupsShouldNotBeOlderThanDays' => 1,
-            'storageUsedMayNotBeHigherThanMegabytes' => 5000,
+            'health_checks' => [
+                \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumAgeInDays::class => 1,
+                \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumStorageInMegabytes::class => 5000,
+            ],
         ],
         */
     ],
@@ -165,37 +228,39 @@ return [
          */
         'strategy' => \Spatie\Backup\Tasks\Cleanup\Strategies\DefaultStrategy::class,
 
-        'defaultStrategy' => [
+        'default_strategy' => [
+
             /*
              * The number of days for which backups must be kept.
              */
-            'keepAllBackupsForDays' => 7,
+            'keep_all_backups_for_days' => 7,
 
             /*
              * The number of days for which daily backups must be kept.
              */
-            'keepDailyBackupsForDays' => 16,
+            'keep_daily_backups_for_days' => 16,
 
             /*
              * The number of weeks for which one weekly backup must be kept.
              */
-            'keepWeeklyBackupsForWeeks' => 8,
+            'keep_weekly_backups_for_weeks' => 8,
 
             /*
              * The number of months for which one monthly backup must be kept.
              */
-            'keepMonthlyBackupsForMonths' => 4,
+            'keep_monthly_backups_for_months' => 4,
 
             /*
              * The number of years for which one yearly backup must be kept.
              */
-            'keepYearlyBackupsForYears' => 2,
+            'keep_yearly_backups_for_years' => 2,
 
             /*
              * After cleaning up the backups remove the oldest backup until
              * this amount of megabytes has been reached.
              */
-            'deleteOldestBackupsWhenUsingMoreMegabytesThan' => 5000,
+            'delete_oldest_backups_when_using_more_megabytes_than' => 5000,
         ],
     ],
+
 ];
