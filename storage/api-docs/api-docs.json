@@ -15,7 +15,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost/admin",
+            "url": "http://localhost:8000/admin",
             "description": "Development Server"
         }
     ],

@@ -14,7 +14,6 @@ return [
     ],
     'configuration_groups' => [
         ['value' => 'adminPanel', 'label' => 'Admin Panel'],
-        ['value' => 'landingPage', 'label' => 'Landing Page'],
     ],
     'widgets' => [
         'Uasoft\\Badaso\\Widgets\\UserWidget',
@@ -28,7 +27,6 @@ return [
             '/login',
         ],
         'api' => [
-            '/v1/verify-badaso',
             '/v1/configurations/applyable',
             '/v1/maintenance',
             '/v1/auth/login',
