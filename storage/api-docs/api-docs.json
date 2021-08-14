@@ -382,6 +382,433 @@
                     }
                 }
             }
+        },
+        "/v1/file/upload/lfm": {
+            "post": {
+                "tags": [
+                    "upload file"
+                ],
+                "summary": "Upload File",
+                "description": "Upload File",
+                "operationId": "uploadFile",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "working_dir": {
+                                        "description": "/shares use if you access storage public users, /{user_id} use if you access storage private users",
+                                        "type": "string",
+                                        "example": "/shares"
+                                    },
+                                    "upload": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Payment Required"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/file/browse/lfm?workingDir={workingDir}": {
+            "get": {
+                "tags": [
+                    "upload file"
+                ],
+                "summary": "Browse File Shares",
+                "description": "Returns list of File Shares",
+                "operationId": "browseFiles",
+                "parameters": [
+                    {
+                        "name": "workingDir",
+                        "in": "path",
+                        "description": "/shares use if you access storage public users, /{user_id} use if you access storage private users",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "/shares"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Payment Required"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/file/delete/lfm?workingDir={workingDir}&items[]={items}": {
+            "get": {
+                "tags": [
+                    "upload file"
+                ],
+                "summary": "Delete File Shares",
+                "description": "Delete File In Shares",
+                "operationId": "deleteFile",
+                "parameters": [
+                    {
+                        "name": "workingDir",
+                        "in": "path",
+                        "description": "/shares use if you access storage public users, /{user_id} use if you access storage private users",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "/shares"
+                        }
+                    },
+                    {
+                        "name": "items",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "example": "http://localhost:8000/storage/1kb-thumb.png"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Payment Required"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/users": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Browse Users",
+                "description": "Browse Users",
+                "operationId": "browseUsers",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Payment Required"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/users/read?id={id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Read User",
+                "description": "Read User",
+                "operationId": "readUsers",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Payment Required"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/users/add": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Add User",
+                "description": "Add User",
+                "operationId": "addUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "johndoe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "johndoe@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "1234567"
+                                    },
+                                    "additional_info": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "avatar": {
+                                        "type": "string",
+                                        "example": "data:image/png;base64,iVBORw0KGgoAAAAN..."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Payment Required"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/users/edit": {
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Edit User",
+                "description": "Edit User",
+                "operationId": "editUser",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "johndoe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "johndoe@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "1234567"
+                                    },
+                                    "additional_info": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "avatar": {
+                                        "type": "string",
+                                        "example": "data:image/png;base64,iVBORw0KGgoAAAAN..."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Payment Required"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/users/delete": {
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete User",
+                "description": "Delete User",
+                "operationId": "deleteUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Payment Required"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/v1/users/delete-multiple": {
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete Multiple User",
+                "description": "Delete Multiple User",
+                "operationId": "deleteMultipleUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "integer",
+                                        "example": "1,2"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Payment Required"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
