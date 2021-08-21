@@ -292,16 +292,16 @@
         },
         {
             "name": "badaso/core",
-            "version": "2.0.0-rc.13",
+            "version": "2.0.0-rc.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uasoft-indonesia/badaso.git",
-                "reference": "7c3ee66b1dd1f740e74dc4ce126179954751b01b"
+                "reference": "459a5edba9d17d6e90db14427e9da75d246c1f55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uasoft-indonesia/badaso/zipball/7c3ee66b1dd1f740e74dc4ce126179954751b01b",
-                "reference": "7c3ee66b1dd1f740e74dc4ce126179954751b01b",
+                "url": "https://api.github.com/repos/uasoft-indonesia/badaso/zipball/459a5edba9d17d6e90db14427e9da75d246c1f55",
+                "reference": "459a5edba9d17d6e90db14427e9da75d246c1f55",
                 "shasum": ""
             },
             "require": {
@@ -373,7 +373,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-08-16T08:20:25+00:00"
+            "time": "2021-08-18T04:48:49+00:00"
         },
         {
             "name": "brick/math",
