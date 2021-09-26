@@ -15,7 +15,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8000/admin",
+            "url": "http://badaso_starter.test/admin",
             "description": "Development Server"
         }
     ],
@@ -369,16 +369,6 @@
                     },
                     "402": {
                         "description": "Payment Required"
-                    }
-                }
-            }
-        },
-        "/": {
-            "get": {
-                "description": "Home page",
-                "responses": {
-                    "default": {
-                        "description": "Welcome page"
                     }
                 }
             }
