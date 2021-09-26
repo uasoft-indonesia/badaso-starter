@@ -1,4 +1,3 @@
-/node_modules
 /public/hot
 /public/storage
 /storage/*.key
@@ -13,3 +12,14 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# JS third party & generated 
+/node_modules
+/public/js/*
+
+# CSS generated
+/public/css/*
+
+# Package manager history (you can delete it for your project)
+yarn.lock
+package-lock.json
