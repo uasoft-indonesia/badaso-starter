@@ -12,6 +12,7 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+composer.lock
 
 # JS third party & generated 
 /node_modules
