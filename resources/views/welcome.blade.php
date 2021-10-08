@@ -1,132 +1,599 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Badaso</title>
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
-        </style>
+    <link rel="shortcut icon" href="/badaso-images/logo-144px.png" type="image/png">
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+        html {
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            margin: 0
+        }
+
+        a {
+            background-color: transparent
+        }
+
+        [hidden] {
+            display: none
+        }
+
+        html {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            line-height: 1.5
+        }
+
+        *,
+        :after,
+        :before {
+            box-sizing: border-box;
+            border: 0 solid #e2e8f0
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        .bg-white {
+            --bg-opacity: 1;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, var(--bg-opacity))
+        }
+
+        .bg-gray-100 {
+            --bg-opacity: 1;
+            background-color: #f7fafc;
+            background-color: rgba(247, 250, 252, var(--bg-opacity))
+        }
+
+        .border-gray-200 {
+            --border-opacity: 1;
+            border-color: #edf2f7;
+            border-color: rgba(237, 242, 247, var(--border-opacity))
+        }
+
+        .border-t {
+            border-top-width: 1px
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .font-semibold {
+            font-weight: 600
+        }
+
+        .h-5 {
+            height: 1.25rem
+        }
+
+        .h-8 {
+            height: 2rem
+        }
+
+        .h-16 {
+            height: 4rem
+        }
+
+        .text-sm {
+            font-size: .875rem
+        }
+
+        .text-lg {
+            font-size: 1.125rem
+        }
+
+        .leading-7 {
+            line-height: 1.75rem
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .ml-1 {
+            margin-left: .25rem
+        }
+
+        .mt-2 {
+            margin-top: .5rem
+        }
+
+        .mr-2 {
+            margin-right: .5rem
+        }
+
+        .ml-2 {
+            margin-left: .5rem
+        }
+
+        .mt-4 {
+            margin-top: 1rem
+        }
+
+        .ml-4 {
+            margin-left: 1rem
+        }
+
+        .mt-8 {
+            margin-top: 2rem
+        }
+
+        .ml-12 {
+            margin-left: 3rem
+        }
+
+        .-mt-px {
+            margin-top: -1px
+        }
+
+        .max-w-6xl {
+            max-width: 72rem
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .overflow-hidden {
+            overflow: hidden
+        }
+
+        .p-6 {
+            padding: 1.5rem
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem
+        }
+
+        .pt-8 {
+            padding-top: 2rem
+        }
+
+        .fixed {
+            position: fixed
+        }
+
+        .relative {
+            position: relative
+        }
+
+        .top-0 {
+            top: 0
+        }
+
+        .right-0 {
+            right: 0
+        }
+
+        .shadow {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06)
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-gray-200 {
+            --text-opacity: 1;
+            color: #edf2f7;
+            color: rgba(237, 242, 247, var(--text-opacity))
+        }
+
+        .text-gray-300 {
+            --text-opacity: 1;
+            color: #e2e8f0;
+            color: rgba(226, 232, 240, var(--text-opacity))
+        }
+
+        .text-gray-400 {
+            --text-opacity: 1;
+            color: #cbd5e0;
+            color: rgba(203, 213, 224, var(--text-opacity))
+        }
+
+        .text-gray-500 {
+            --text-opacity: 1;
+            color: #a0aec0;
+            color: rgba(160, 174, 192, var(--text-opacity))
+        }
+
+        .text-blue-500 {
+            --text-opacity: 1;
+            color: #3B82F6;
+            color: rgba(59, 130, 246, var(--text-opacity))
+        }
+
+        .text-gray-600 {
+            --text-opacity: 1;
+            color: #718096;
+            color: rgba(113, 128, 150, var(--text-opacity))
+        }
+
+        .text-gray-700 {
+            --text-opacity: 1;
+            color: #4a5568;
+            color: rgba(74, 85, 104, var(--text-opacity))
+        }
+
+        .text-gray-900 {
+            --text-opacity: 1;
+            color: #1a202c;
+            color: rgba(26, 32, 44, var(--text-opacity))
+        }
+
+        .underline {
+            text-decoration: underline
+        }
+
+        .antialiased {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        .w-5 {
+            width: 1.25rem
+        }
+
+        .w-8 {
+            width: 2rem
+        }
+
+        .w-auto {
+            width: auto
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr))
+        }
+
+        @media (min-width:640px) {
+            .sm\:rounded-lg {
+                border-radius: .5rem
             }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            .sm\:block {
+                display: block
+            }
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
+            .sm\:items-center {
+                align-items: center
+            }
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
+            .sm\:justify-start {
+                justify-content: flex-start
+            }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
+            .sm\:justify-between {
+                justify-content: space-between
+            }
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
+            .sm\:h-20 {
+                height: 5rem
+            }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
+            .sm\:ml-0 {
+                margin-left: 0
+            }
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
+            .sm\:px-6 {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem
+            }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
+            .sm\:pt-0 {
+                padding-top: 0
+            }
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
+            .sm\:text-left {
+                text-align: left
+            }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            .sm\:text-right {
+                text-align: right
+            }
+        }
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
+        @media (min-width:768px) {
+            .md\:border-t-0 {
+                border-top-width: 0
+            }
 
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
+            .md\:border-l {
+                border-left-width: 1px
+            }
+
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+        }
+
+        @media (min-width:1024px) {
+            .lg\:px-8 {
+                padding-left: 2rem;
+                padding-right: 2rem
+            }
+        }
+
+        @media (prefers-color-scheme:dark) {
+            .dark\:bg-gray-800 {
+                --bg-opacity: 1;
+                background-color: #2d3748;
+                background-color: rgba(45, 55, 72, var(--bg-opacity))
+            }
+
+            .dark\:bg-gray-900 {
+                --bg-opacity: 1;
+                background-color: #1a202c;
+                background-color: rgba(26, 32, 44, var(--bg-opacity))
+            }
+
+            .dark\:border-gray-700 {
+                --border-opacity: 1;
+                border-color: #4a5568;
+                border-color: rgba(74, 85, 104, var(--border-opacity))
+            }
+
+            .dark\:text-white {
+                --text-opacity: 1;
+                color: #fff;
+                color: rgba(255, 255, 255, var(--text-opacity))
+            }
+
+            .dark\:text-gray-400 {
+                --text-opacity: 1;
+                color: #cbd5e0;
+                color: rgba(203, 213, 224, var(--text-opacity))
+            }
+        }
+
+    </style>
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+    </style>
+</head>
+
+<body class="antialiased">
+    <div
+        class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        @if (Route::has('login'))
+            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                @auth
+                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                @else
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
+
+        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+            <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+                <div class="">
+                    <div class="flex items-center">
+                        <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="120" viewBox="0, 0, 400,120">
+                            <g id="svgg">
+                                <path id="path0"
+                                    d="M105.333 60.073 C 105.333 78.969,105.386 86.846,105.513 86.924 C 105.683 87.030,106.374 87.117,109.961 87.490 C 110.811 87.578,111.580 87.697,111.672 87.753 C 112.038 87.980,120.900 88.532,124.417 88.548 C 128.813 88.568,134.315 87.908,134.936 87.286 C 135.002 87.220,135.195 87.167,135.366 87.167 C 135.980 87.167,138.345 85.821,139.668 84.719 C 140.829 83.751,142.249 81.067,142.870 78.667 C 143.628 75.738,143.564 61.158,142.781 58.333 C 142.641 57.829,142.477 57.229,142.417 57.000 C 141.881 54.977,140.102 52.584,138.286 51.442 C 136.986 50.624,134.741 49.667,134.123 49.667 C 133.961 49.667,133.699 49.598,133.539 49.514 C 132.159 48.786,122.321 48.605,118.833 49.243 C 117.962 49.403,116.912 49.594,116.500 49.669 C 116.087 49.744,115.450 49.885,115.083 49.982 C 114.100 50.243,113.386 50.212,113.268 49.903 C 113.212 49.758,113.167 45.971,113.167 41.486 L 113.167 33.333 109.250 33.333 L 105.333 33.333 105.333 60.073 M228.000 41.740 C 228.000 46.364,227.942 50.183,227.870 50.227 C 227.799 50.271,227.255 50.195,226.662 50.058 C 225.384 49.763,224.310 49.562,222.833 49.342 C 222.237 49.253,221.346 49.102,220.852 49.007 C 219.141 48.676,211.660 48.792,209.583 49.180 C 208.575 49.369,207.525 49.562,207.250 49.609 C 206.975 49.656,206.514 49.801,206.225 49.931 C 205.936 50.060,205.657 50.167,205.605 50.167 C 204.349 50.167,201.335 52.526,200.111 54.468 C 199.273 55.798,199.080 56.286,198.326 59.000 C 198.031 60.063,197.900 75.144,198.172 76.855 C 198.279 77.531,198.405 78.383,198.451 78.750 C 198.497 79.117,198.601 79.488,198.684 79.575 C 198.766 79.662,198.833 79.838,198.833 79.966 C 198.833 80.385,199.983 82.765,200.484 83.385 C 201.377 84.490,201.798 84.897,202.720 85.546 C 203.703 86.238,205.491 87.167,205.840 87.167 C 205.931 87.167,206.135 87.233,206.294 87.315 C 209.049 88.729,218.261 88.934,228.250 87.806 C 229.167 87.702,230.479 87.559,231.167 87.487 C 231.854 87.416,233.113 87.285,233.963 87.195 C 234.814 87.106,235.620 86.941,235.755 86.829 C 235.969 86.652,236.000 83.236,236.000 59.980 L 236.000 33.333 232.000 33.333 L 228.000 33.333 228.000 41.740 M163.324 48.898 C 163.276 48.947,162.339 49.111,161.243 49.264 C 154.530 50.200,155.000 49.919,155.000 52.995 C 155.000 54.669,155.063 55.496,155.200 55.633 C 155.350 55.783,157.512 55.837,163.825 55.849 C 174.138 55.868,175.422 55.957,177.083 56.762 C 179.417 57.893,180.500 60.064,180.500 63.610 C 180.500 65.765,180.462 65.825,179.286 65.532 C 177.008 64.965,169.927 64.166,167.186 64.166 C 164.230 64.167,158.862 64.984,158.258 65.525 C 158.171 65.603,157.976 65.667,157.825 65.667 C 156.897 65.667,153.000 68.499,153.000 69.174 C 153.000 69.248,152.903 69.409,152.785 69.530 C 152.435 69.889,151.804 71.505,151.560 72.667 C 151.290 73.955,151.243 79.424,151.500 79.583 C 151.592 79.640,151.667 79.860,151.667 80.073 C 151.667 82.089,154.351 85.266,157.083 86.483 C 157.358 86.605,157.728 86.781,157.905 86.873 C 159.187 87.540,161.846 88.086,165.381 88.407 C 168.272 88.670,180.579 88.182,181.667 87.762 C 181.804 87.709,182.667 87.589,183.583 87.496 C 184.500 87.403,185.912 87.257,186.721 87.173 C 187.531 87.088,188.303 86.928,188.437 86.817 C 188.648 86.642,188.670 84.918,188.606 73.932 C 188.528 60.540,188.433 58.824,187.657 56.907 C 187.548 56.637,187.382 56.229,187.289 56.000 C 186.950 55.164,186.578 54.481,186.251 54.092 C 186.067 53.873,185.769 53.492,185.588 53.246 C 184.858 52.249,182.595 50.922,180.500 50.261 C 179.996 50.102,179.433 49.908,179.250 49.830 C 179.067 49.751,178.654 49.650,178.333 49.604 C 178.012 49.558,177.112 49.396,176.333 49.244 C 174.948 48.975,163.551 48.672,163.324 48.898 M256.500 49.019 C 255.996 49.106,255.021 49.252,254.333 49.345 C 251.433 49.734,249.328 50.144,249.038 50.377 C 248.878 50.505,248.837 51.196,248.871 53.149 L 248.917 55.750 258.750 55.860 C 268.413 55.968,269.771 56.049,270.270 56.547 C 270.335 56.613,270.489 56.667,270.611 56.667 C 271.184 56.667,273.333 58.617,273.333 59.136 C 273.333 59.224,273.444 59.509,273.580 59.770 C 274.002 60.585,274.180 61.875,274.131 63.763 L 274.083 65.583 273.583 65.562 C 273.308 65.550,272.371 65.412,271.500 65.254 C 263.596 63.824,255.998 63.919,251.917 65.499 C 248.455 66.839,246.563 68.680,245.490 71.750 C 244.857 73.561,244.856 78.987,245.488 80.750 C 246.491 83.547,248.721 85.714,251.833 86.917 C 253.119 87.414,253.229 87.450,254.083 87.666 C 257.337 88.490,260.820 88.702,266.249 88.409 C 271.853 88.106,275.174 87.865,275.500 87.739 C 275.637 87.685,276.462 87.572,277.333 87.486 C 280.343 87.191,281.622 87.037,281.977 86.924 L 282.333 86.811 282.333 74.456 C 282.333 62.526,282.263 60.419,281.802 58.583 C 281.710 58.217,281.596 57.672,281.549 57.373 C 281.502 57.075,281.396 56.789,281.315 56.739 C 281.233 56.688,281.167 56.515,281.167 56.355 C 281.167 55.462,278.111 51.667,277.393 51.667 C 277.269 51.667,277.167 51.592,277.167 51.500 C 277.167 51.408,277.094 51.333,277.005 51.333 C 276.915 51.333,276.447 51.150,275.963 50.926 C 275.479 50.702,274.671 50.395,274.167 50.244 C 273.662 50.093,273.100 49.908,272.917 49.832 C 272.733 49.756,272.283 49.644,271.917 49.583 C 271.550 49.523,270.650 49.360,269.917 49.221 C 268.327 48.921,257.975 48.764,256.500 49.019 M301.833 49.108 C 301.146 49.238,300.353 49.418,300.072 49.506 C 299.790 49.594,299.363 49.667,299.123 49.667 C 298.883 49.667,298.640 49.742,298.583 49.833 C 298.527 49.925,298.365 50.000,298.224 50.000 C 298.083 50.000,297.693 50.120,297.359 50.267 C 297.024 50.414,296.563 50.613,296.333 50.710 C 292.625 52.276,290.515 55.879,290.503 60.667 C 290.499 62.228,291.090 65.097,291.499 65.500 C 291.546 65.546,291.696 65.803,291.834 66.071 C 292.189 66.763,293.837 68.387,294.647 68.842 C 295.025 69.055,295.333 69.289,295.333 69.364 C 295.333 69.439,295.448 69.500,295.589 69.500 C 295.730 69.500,296.011 69.607,296.214 69.738 C 296.744 70.081,300.147 71.167,300.690 71.167 C 300.941 71.167,301.193 71.242,301.250 71.333 C 301.307 71.425,301.592 71.500,301.885 71.500 C 302.177 71.500,303.005 71.613,303.723 71.750 C 304.441 71.888,305.337 72.000,305.713 72.000 C 306.957 72.000,311.212 72.850,312.417 73.339 C 312.600 73.413,312.946 73.516,313.186 73.568 C 313.844 73.710,315.193 74.678,315.621 75.316 C 316.173 76.141,316.058 79.167,315.474 79.167 C 315.396 79.167,315.333 79.251,315.333 79.353 C 315.333 79.615,314.303 80.494,313.992 80.497 C 313.850 80.499,313.662 80.567,313.575 80.649 C 312.951 81.236,311.160 81.333,301.028 81.333 L 291.039 81.333 290.938 81.708 C 290.715 82.542,290.824 86.618,291.075 86.826 C 291.333 87.041,291.960 87.161,296.167 87.802 C 302.003 88.691,309.618 88.852,312.782 88.154 C 313.166 88.069,313.685 88.000,313.934 88.000 C 314.408 88.000,316.042 87.571,316.539 87.315 C 316.699 87.234,316.933 87.167,317.060 87.167 C 318.493 87.167,322.015 84.507,323.021 82.667 C 324.664 79.660,324.775 72.853,323.208 71.196 C 323.094 71.075,323.000 70.904,323.000 70.817 C 323.000 70.506,320.827 68.521,320.169 68.231 C 319.801 68.069,319.500 67.875,319.500 67.801 C 319.500 67.727,319.386 67.667,319.248 67.667 C 319.109 67.667,318.865 67.593,318.706 67.503 C 318.226 67.230,316.300 66.623,315.500 66.492 C 315.087 66.424,314.112 66.239,313.333 66.081 C 311.912 65.793,311.156 65.671,308.833 65.357 C 307.709 65.204,305.937 64.888,304.083 64.509 C 303.269 64.343,302.305 64.005,302.092 63.811 C 302.005 63.731,301.834 63.667,301.713 63.667 C 301.496 63.667,300.272 62.928,299.885 62.563 C 297.960 60.752,298.829 57.246,301.384 56.514 C 301.769 56.403,302.308 56.233,302.583 56.135 C 302.903 56.022,306.456 55.929,312.417 55.877 C 319.120 55.818,321.785 55.742,321.872 55.606 C 322.039 55.349,322.029 50.803,321.861 50.539 C 321.682 50.256,319.266 49.762,316.000 49.341 C 315.221 49.240,314.133 49.085,313.583 48.997 C 312.007 48.743,303.323 48.825,301.833 49.108 M343.917 49.105 C 343.092 49.236,342.186 49.416,341.905 49.505 C 341.623 49.594,341.197 49.667,340.956 49.667 C 340.716 49.667,340.473 49.742,340.417 49.833 C 340.360 49.925,340.198 50.000,340.057 50.000 C 339.916 50.000,339.545 50.112,339.234 50.250 C 338.922 50.387,338.385 50.624,338.042 50.775 C 336.945 51.258,335.571 52.286,334.624 53.332 C 333.284 54.813,332.568 56.376,331.855 59.377 C 331.596 60.470,331.593 76.848,331.853 77.956 C 332.746 81.773,334.245 84.153,336.776 85.774 C 337.729 86.384,339.414 87.167,339.773 87.167 C 339.900 87.167,340.135 87.233,340.294 87.314 C 342.598 88.485,353.346 88.980,358.500 88.152 C 359.951 87.919,362.005 87.488,362.417 87.329 C 366.489 85.764,368.518 84.009,369.736 81.000 C 369.903 80.587,370.101 80.100,370.175 79.917 C 370.250 79.733,370.345 79.358,370.387 79.083 C 370.429 78.808,370.565 78.133,370.690 77.583 C 371.007 76.187,371.003 60.819,370.686 59.583 C 370.568 59.125,370.433 58.468,370.385 58.124 C 370.337 57.780,370.231 57.456,370.149 57.406 C 370.067 57.355,369.998 57.149,369.995 56.948 C 369.992 56.748,369.879 56.438,369.745 56.260 C 369.610 56.082,369.500 55.801,369.500 55.635 C 369.500 55.469,369.425 55.333,369.333 55.333 C 369.242 55.333,369.167 55.255,369.167 55.160 C 369.167 54.251,366.204 51.555,364.250 50.684 C 363.975 50.561,363.620 50.395,363.461 50.314 C 363.301 50.233,363.088 50.167,362.986 50.167 C 362.884 50.167,362.564 50.060,362.275 49.931 C 361.715 49.679,361.617 49.658,358.667 49.168 C 356.188 48.757,346.371 48.715,343.917 49.105 M130.750 56.336 C 133.201 57.274,134.312 58.584,135.065 61.428 C 135.456 62.899,135.462 74.234,135.073 75.641 C 134.539 77.576,134.075 78.392,132.887 79.486 C 132.068 80.240,131.591 80.526,130.554 80.886 L 129.250 81.337 121.309 81.335 C 114.224 81.334,113.358 81.305,113.268 81.070 C 113.052 80.506,113.155 56.245,113.375 56.019 C 113.802 55.581,129.527 55.867,130.750 56.336 M227.959 68.625 L 228.002 81.333 220.011 81.333 L 212.020 81.333 210.802 80.898 C 208.203 79.970,206.805 78.289,206.175 75.333 C 205.961 74.330,206.012 62.402,206.235 61.333 C 206.357 60.745,206.400 60.629,206.942 59.417 C 207.343 58.521,208.772 57.104,209.680 56.703 C 211.533 55.883,211.441 55.890,220.750 55.905 L 227.917 55.917 227.959 68.625 M358.714 56.339 C 360.565 56.985,362.056 58.631,362.561 60.583 C 362.795 61.489,362.793 75.854,362.559 76.750 C 361.973 78.991,360.594 80.397,358.317 81.073 C 357.022 81.457,345.478 81.457,344.183 81.073 C 342.115 80.459,341.083 79.533,340.199 77.500 C 339.186 75.170,339.179 62.194,340.190 59.833 C 341.042 57.844,341.856 57.058,343.917 56.237 C 345.320 55.677,357.053 55.758,358.714 56.339 M180.417 76.167 L 180.417 81.583 172.000 81.574 C 162.288 81.564,161.717 81.484,160.388 79.947 C 159.391 78.793,158.848 76.058,159.320 74.567 C 159.404 74.301,159.515 73.888,159.567 73.648 C 159.697 73.048,160.830 71.888,161.606 71.560 C 163.572 70.729,164.080 70.690,172.500 70.721 L 180.417 70.750 180.417 76.167 M274.083 76.167 L 274.083 81.583 266.083 81.634 C 256.715 81.693,255.700 81.564,254.306 80.139 C 252.680 78.476,252.532 74.197,254.040 72.475 C 255.437 70.880,256.774 70.686,266.167 70.721 L 274.083 70.750 274.083 76.167 "
+                                    stroke="none" fill="#fafafa" fill-rule="evenodd"></path>
+                                <path id="path1"
+                                    d="M23.944 12.944 C 23.883 13.006,23.833 26.763,23.833 43.516 C 23.833 76.865,23.758 74.254,24.734 74.680 C 24.926 74.764,25.229 74.926,25.407 75.041 C 26.360 75.656,27.495 76.333,27.572 76.333 C 27.621 76.333,28.071 76.596,28.572 76.917 C 29.074 77.237,29.524 77.500,29.572 77.500 C 29.621 77.500,30.055 77.750,30.538 78.055 C 31.021 78.360,31.529 78.663,31.667 78.728 C 31.804 78.793,32.067 78.938,32.250 79.050 C 33.579 79.861,37.693 82.299,38.167 82.557 C 38.487 82.732,38.949 83.015,39.192 83.187 C 39.436 83.359,39.681 83.500,39.737 83.500 C 39.794 83.500,40.128 83.682,40.479 83.904 L 41.119 84.307 43.768 82.741 C 45.225 81.880,46.529 81.098,46.667 81.003 C 46.804 80.909,47.029 80.781,47.167 80.721 C 47.304 80.660,47.812 80.360,48.295 80.055 C 48.778 79.750,49.213 79.500,49.261 79.500 C 49.310 79.500,49.760 79.237,50.261 78.917 C 50.763 78.596,51.247 78.333,51.337 78.333 C 51.426 78.333,51.500 78.275,51.500 78.203 C 51.500 78.132,51.706 77.985,51.958 77.878 C 52.210 77.771,52.693 77.511,53.031 77.300 C 54.455 76.411,56.054 75.500,56.189 75.500 C 56.268 75.500,56.333 75.443,56.333 75.373 C 56.333 75.303,56.476 75.172,56.651 75.081 C 56.825 74.991,57.240 74.775,57.574 74.603 C 58.215 74.271,58.262 74.024,57.737 73.748 C 57.261 73.498,55.064 72.202,53.879 71.472 C 53.308 71.121,52.804 70.833,52.757 70.833 C 52.711 70.833,52.263 70.571,51.761 70.250 C 51.260 69.929,50.771 69.667,50.675 69.667 C 50.579 69.667,50.500 69.592,50.500 69.500 C 50.500 69.408,50.424 69.333,50.332 69.333 C 50.239 69.333,49.565 68.958,48.833 68.500 C 48.102 68.042,47.434 67.667,47.349 67.667 C 47.264 67.667,47.169 67.610,47.139 67.542 C 47.108 67.473,46.821 67.276,46.500 67.104 C 45.055 66.328,44.413 65.939,44.361 65.808 C 44.331 65.730,44.233 65.667,44.145 65.667 C 44.056 65.667,43.574 65.404,43.072 65.083 C 42.571 64.762,42.117 64.500,42.064 64.500 C 42.011 64.500,41.750 64.345,41.484 64.155 L 41.000 63.811 41.000 43.437 C 41.000 27.383,40.956 23.011,40.792 22.814 C 40.577 22.557,39.248 21.667,39.079 21.667 C 39.027 21.667,38.574 21.404,38.072 21.083 C 37.571 20.762,37.129 20.500,37.091 20.500 C 37.016 20.500,34.359 18.923,34.078 18.712 C 33.920 18.593,33.231 18.200,32.417 17.762 C 32.233 17.664,32.046 17.546,32.000 17.500 C 31.954 17.454,31.767 17.336,31.583 17.238 C 30.649 16.736,30.075 16.408,30.000 16.333 C 29.879 16.212,29.290 15.849,29.000 15.717 C 28.863 15.655,28.360 15.355,27.883 15.052 C 27.406 14.748,26.963 14.500,26.899 14.500 C 26.834 14.500,26.536 14.313,26.235 14.083 C 25.935 13.854,25.645 13.667,25.591 13.667 C 25.537 13.667,25.196 13.479,24.833 13.250 C 24.101 12.788,24.101 12.788,23.944 12.944 M46.105 40.951 C 46.047 41.008,46.000 45.531,46.000 51.002 C 46.000 61.769,45.953 61.179,46.833 61.557 C 46.971 61.616,47.751 62.077,48.566 62.582 C 49.382 63.087,50.074 63.500,50.104 63.500 C 50.152 63.500,52.048 64.617,55.576 66.724 C 57.334 67.774,57.398 67.811,57.667 67.941 C 57.804 68.008,58.424 68.386,59.043 68.781 C 59.663 69.177,60.210 69.500,60.260 69.500 C 60.339 69.500,61.495 70.190,62.426 70.793 C 62.604 70.908,62.862 71.052,63.000 71.114 C 63.137 71.175,63.288 71.269,63.333 71.321 C 63.408 71.406,63.914 71.700,64.917 72.238 C 65.100 72.336,65.287 72.454,65.333 72.500 C 65.408 72.575,65.982 72.903,66.917 73.404 C 67.100 73.503,67.400 73.702,67.583 73.847 C 67.907 74.103,68.455 74.432,70.000 75.300 C 71.404 76.089,71.750 76.286,73.752 77.444 C 74.854 78.080,75.866 78.654,76.002 78.719 C 76.139 78.784,76.625 79.064,77.083 79.341 C 77.542 79.618,78.029 79.892,78.167 79.952 C 78.304 80.011,78.454 80.102,78.500 80.155 C 78.546 80.208,79.015 80.473,79.542 80.744 C 80.069 81.015,80.500 81.296,80.500 81.369 C 80.500 81.441,80.609 81.500,80.743 81.500 C 80.963 81.500,81.949 82.076,82.451 82.498 C 82.562 82.591,82.733 82.667,82.832 82.667 C 82.997 82.667,83.804 83.125,84.000 83.329 C 84.189 83.527,84.846 83.833,85.081 83.833 C 85.425 83.833,85.468 64.399,85.125 63.969 C 84.928 63.722,83.087 62.500,82.912 62.500 C 82.867 62.500,82.231 62.125,81.500 61.667 C 80.769 61.208,80.094 60.833,80.002 60.833 C 79.909 60.833,79.833 60.767,79.833 60.686 C 79.833 60.605,79.702 60.497,79.542 60.445 C 79.228 60.345,77.992 59.648,76.868 58.939 C 76.486 58.697,76.129 58.500,76.076 58.500 C 76.022 58.500,75.732 58.313,75.431 58.083 C 75.131 57.854,74.837 57.667,74.779 57.667 C 74.721 57.667,74.263 57.404,73.761 57.083 C 73.260 56.762,72.810 56.500,72.762 56.500 C 72.715 56.500,72.130 56.170,71.463 55.766 C 67.939 53.632,64.624 51.667,64.551 51.667 C 64.505 51.667,64.269 51.527,64.026 51.357 C 63.782 51.187,63.133 50.800,62.583 50.499 C 62.033 50.197,61.546 49.905,61.500 49.850 C 61.454 49.795,61.079 49.570,60.667 49.350 C 60.254 49.130,59.798 48.849,59.654 48.725 C 59.509 48.601,59.336 48.500,59.271 48.500 C 59.205 48.500,58.740 48.237,58.239 47.917 C 57.737 47.596,57.290 47.333,57.245 47.333 C 57.200 47.333,56.565 46.958,55.833 46.500 C 55.102 46.042,54.458 45.667,54.403 45.667 C 54.347 45.667,54.102 45.527,53.859 45.357 C 53.616 45.187,53.079 44.859,52.667 44.628 C 52.254 44.397,50.942 43.626,49.750 42.915 C 46.644 41.061,46.222 40.834,46.105 40.951 "
+                                    stroke="none" fill="#3eb8d4" fill-rule="evenodd"></path>
+                                <path id="path2"
+                                    d="M0.000 60.000 L 0.000 120.000 200.000 120.000 L 400.000 120.000 400.000 60.000 L 400.000 0.000 200.000 0.000 L 0.000 0.000 0.000 60.000 M25.722 13.524 C 26.439 13.969,27.062 14.333,27.105 14.333 C 27.148 14.333,27.593 14.596,28.095 14.917 C 28.596 15.237,29.043 15.500,29.088 15.500 C 29.133 15.500,29.769 15.875,30.500 16.333 C 31.231 16.792,31.857 17.167,31.890 17.167 C 31.923 17.167,33.137 17.879,34.588 18.750 C 36.038 19.621,37.253 20.333,37.287 20.333 C 37.340 20.333,38.280 20.898,39.426 21.620 C 39.604 21.732,39.990 21.946,40.284 22.094 C 40.578 22.243,40.915 22.481,41.034 22.624 C 41.207 22.833,41.266 26.936,41.333 43.375 L 41.417 63.866 42.167 64.283 C 42.579 64.512,43.384 64.992,43.954 65.350 C 44.525 65.707,45.030 66.000,45.076 66.000 C 45.122 66.000,45.571 66.263,46.072 66.583 C 46.574 66.904,47.063 67.167,47.159 67.167 C 47.255 67.167,47.333 67.233,47.333 67.314 C 47.333 67.395,47.465 67.506,47.625 67.561 C 47.785 67.616,48.217 67.851,48.583 68.084 C 48.950 68.316,49.400 68.583,49.583 68.677 C 49.767 68.771,50.070 68.938,50.257 69.049 C 52.211 70.203,53.245 70.822,54.121 71.361 C 54.692 71.713,55.197 72.000,55.244 72.000 C 55.291 72.000,55.856 72.337,56.500 72.750 C 57.144 73.162,57.733 73.500,57.809 73.500 C 57.886 73.500,58.089 73.656,58.262 73.846 C 58.618 74.240,58.463 74.422,57.201 75.095 C 56.869 75.272,55.747 75.923,54.709 76.542 C 53.671 77.160,52.749 77.667,52.661 77.667 C 52.572 77.667,52.500 77.725,52.500 77.795 C 52.500 77.866,52.219 78.071,51.875 78.251 C 51.531 78.431,50.860 78.823,50.383 79.122 C 49.906 79.422,49.463 79.667,49.399 79.667 C 49.334 79.667,49.049 79.836,48.766 80.043 C 48.482 80.250,47.913 80.599,47.500 80.818 C 47.087 81.037,46.632 81.318,46.487 81.441 C 46.342 81.565,46.172 81.667,46.108 81.667 C 46.044 81.667,45.525 81.953,44.954 82.303 C 40.869 84.806,41.184 84.686,40.298 84.083 C 39.960 83.854,39.639 83.667,39.584 83.667 C 39.529 83.667,39.074 83.404,38.572 83.083 C 38.071 82.763,37.622 82.500,37.576 82.500 C 37.530 82.500,37.025 82.214,36.454 81.864 C 34.069 80.402,32.818 79.667,32.717 79.667 C 32.658 79.667,32.491 79.565,32.346 79.441 C 32.202 79.318,31.746 79.037,31.333 78.818 C 30.921 78.599,30.351 78.250,30.068 78.043 C 29.784 77.836,29.501 77.667,29.439 77.667 C 29.377 77.667,29.021 77.474,28.647 77.237 C 28.273 77.001,27.618 76.615,27.192 76.379 C 26.765 76.143,26.379 75.905,26.333 75.850 C 26.248 75.748,25.754 75.463,24.498 74.793 C 24.110 74.586,23.727 74.243,23.647 74.031 C 23.483 73.601,23.444 13.478,23.606 12.870 C 23.737 12.381,24.016 12.467,25.722 13.524 M113.467 33.200 C 113.617 33.350,113.667 35.467,113.667 41.700 C 113.667 48.629,113.704 50.000,113.896 50.000 C 114.022 50.000,114.444 49.887,114.833 49.750 C 115.223 49.612,115.791 49.500,116.094 49.500 C 116.398 49.500,116.693 49.425,116.750 49.333 C 116.807 49.242,117.130 49.167,117.468 49.167 C 117.807 49.166,118.646 49.039,119.333 48.884 C 121.133 48.477,129.990 48.466,131.833 48.868 C 132.521 49.018,133.271 49.179,133.500 49.226 C 138.003 50.140,141.215 52.794,142.606 56.750 C 143.476 59.226,143.562 60.290,143.562 68.583 C 143.562 75.832,143.461 77.781,143.010 79.167 C 142.906 79.487,142.742 80.012,142.646 80.333 C 142.280 81.554,141.279 83.315,140.448 84.202 C 138.721 86.045,137.461 86.786,134.295 87.817 C 130.716 88.982,121.360 89.094,112.333 88.079 C 106.638 87.438,105.312 87.234,105.146 86.972 C 104.901 86.586,104.963 33.209,105.208 33.110 C 105.686 32.918,113.267 33.000,113.467 33.200 M236.070 33.101 C 236.384 33.222,236.484 86.887,236.170 87.081 C 236.001 87.185,234.402 87.414,232.083 87.666 C 231.350 87.745,229.700 87.926,228.417 88.066 C 219.933 88.997,211.868 89.005,208.167 88.086 C 207.571 87.939,206.858 87.774,206.583 87.721 C 206.308 87.668,206.008 87.572,205.917 87.508 C 205.825 87.443,205.375 87.253,204.917 87.086 C 204.458 86.918,204.046 86.735,204.000 86.680 C 203.954 86.625,203.628 86.431,203.275 86.248 C 202.667 85.934,200.870 84.305,200.332 83.581 C 199.729 82.769,199.167 81.823,199.167 81.620 C 199.167 81.499,199.102 81.329,199.023 81.242 C 198.874 81.077,198.480 79.902,198.187 78.750 C 197.247 75.055,197.543 59.404,198.597 57.058 C 198.727 56.769,198.833 56.458,198.833 56.367 C 198.833 56.069,199.781 54.390,200.492 53.428 C 201.622 51.897,203.942 50.380,206.250 49.661 C 206.617 49.547,207.067 49.394,207.250 49.321 C 207.433 49.247,207.846 49.154,208.167 49.114 C 208.487 49.074,209.200 48.942,209.750 48.822 C 211.351 48.471,220.568 48.519,222.052 48.886 C 222.676 49.040,223.441 49.167,223.751 49.167 C 224.060 49.167,224.360 49.242,224.417 49.333 C 224.473 49.425,224.802 49.500,225.147 49.500 C 225.492 49.500,226.126 49.620,226.557 49.767 C 227.931 50.235,227.833 50.862,227.833 41.533 C 227.833 36.962,227.883 33.172,227.944 33.111 C 228.083 32.972,235.709 32.963,236.070 33.101 M47.170 41.127 C 47.489 41.309,49.175 42.302,50.917 43.334 C 52.658 44.365,54.420 45.399,54.832 45.632 C 55.244 45.865,55.971 46.306,56.449 46.611 C 56.927 46.917,57.370 47.167,57.435 47.167 C 57.499 47.167,57.784 47.336,58.068 47.543 C 58.351 47.750,58.921 48.099,59.333 48.318 C 59.746 48.537,60.202 48.818,60.346 48.941 C 60.491 49.065,60.664 49.167,60.729 49.167 C 60.795 49.167,61.260 49.429,61.761 49.750 C 62.263 50.071,62.710 50.333,62.755 50.333 C 62.800 50.333,63.435 50.708,64.167 51.167 C 64.898 51.625,65.542 52.000,65.597 52.000 C 65.653 52.000,65.898 52.139,66.141 52.310 C 66.384 52.480,66.921 52.807,67.333 53.038 C 68.312 53.584,74.090 57.009,74.974 57.567 C 75.352 57.805,75.698 58.000,75.743 58.000 C 75.789 58.000,76.237 58.262,76.739 58.583 C 77.240 58.904,77.729 59.167,77.825 59.167 C 77.921 59.167,78.000 59.242,78.000 59.333 C 78.000 59.425,78.079 59.500,78.175 59.500 C 78.271 59.500,78.760 59.762,79.261 60.083 C 79.763 60.404,80.210 60.667,80.256 60.667 C 80.302 60.667,80.944 61.042,81.683 61.500 C 82.422 61.958,83.057 62.333,83.093 62.333 C 83.130 62.333,83.571 62.596,84.072 62.917 C 84.574 63.237,85.060 63.500,85.153 63.500 C 85.624 63.500,85.667 64.393,85.667 74.149 L 85.667 84.154 85.302 84.494 C 85.101 84.680,84.878 84.833,84.805 84.833 C 84.733 84.833,84.263 85.096,83.761 85.417 C 83.260 85.737,82.813 86.000,82.770 86.000 C 82.726 86.000,81.916 86.473,80.970 87.052 C 78.947 88.289,77.477 89.169,76.667 89.628 C 76.346 89.809,74.658 90.802,72.917 91.833 C 71.175 92.865,69.487 93.857,69.167 94.039 C 68.410 94.468,66.853 95.396,65.546 96.197 C 64.975 96.547,64.470 96.833,64.424 96.833 C 64.378 96.833,63.943 97.077,63.458 97.375 C 62.471 97.981,62.442 97.998,60.583 99.109 C 59.850 99.547,59.080 99.998,58.872 100.111 C 58.664 100.225,58.064 100.577,57.538 100.895 C 55.287 102.256,52.319 104.000,52.253 104.000 C 52.214 104.000,51.905 104.187,51.567 104.417 C 50.696 105.008,50.671 105.001,47.754 103.250 C 46.304 102.379,45.089 101.667,45.055 101.667 C 45.022 101.667,44.390 101.292,43.651 100.833 C 42.912 100.375,42.274 100.000,42.233 100.000 C 42.192 100.000,41.692 99.709,41.121 99.354 C 40.550 98.999,38.958 98.043,37.583 97.231 C 36.208 96.418,34.933 95.664,34.750 95.555 C 34.567 95.447,34.170 95.230,33.868 95.073 C 33.091 94.670,33.178 94.577,35.763 93.047 C 37.039 92.292,38.196 91.597,38.333 91.503 C 38.471 91.408,38.696 91.280,38.833 91.217 C 38.971 91.155,39.473 90.855,39.950 90.552 C 40.427 90.248,40.853 90.000,40.897 90.000 C 40.967 90.000,44.362 87.984,47.796 85.902 C 48.463 85.497,49.052 85.167,49.104 85.167 C 49.156 85.167,49.398 85.027,49.641 84.857 C 49.884 84.687,50.421 84.359,50.833 84.129 C 51.246 83.899,53.196 82.753,55.167 81.583 C 57.137 80.414,58.989 79.321,59.281 79.154 C 59.573 78.987,60.115 78.660,60.486 78.426 C 60.857 78.192,61.191 78.000,61.230 78.000 C 61.268 78.000,62.338 77.381,63.608 76.624 C 64.878 75.867,66.104 75.151,66.333 75.033 C 67.443 74.462,67.785 73.667,66.921 73.667 C 66.864 73.667,66.407 73.404,65.905 73.083 C 65.404 72.762,64.957 72.500,64.912 72.500 C 64.867 72.500,64.231 72.125,63.500 71.667 C 62.769 71.208,62.133 70.833,62.088 70.833 C 62.043 70.833,61.596 70.571,61.095 70.250 C 60.593 69.929,60.143 69.667,60.095 69.667 C 60.046 69.667,59.596 69.404,59.095 69.083 C 58.593 68.762,58.137 68.500,58.080 68.500 C 58.024 68.500,57.732 68.313,57.431 68.083 C 57.131 67.854,56.832 67.667,56.768 67.667 C 56.703 67.667,56.240 67.404,55.739 67.083 C 55.237 66.762,54.798 66.500,54.764 66.500 C 54.729 66.500,53.737 65.928,52.559 65.228 C 49.371 63.335,49.176 63.220,48.000 62.551 C 47.404 62.211,46.892 61.873,46.861 61.800 C 46.831 61.727,46.723 61.667,46.622 61.667 C 46.521 61.667,46.265 61.504,46.052 61.304 L 45.667 60.942 45.667 50.832 C 45.667 45.272,45.712 40.677,45.767 40.622 C 45.888 40.501,46.387 40.680,47.170 41.127 M176.173 48.919 C 179.324 49.472,183.418 50.811,183.639 51.362 C 183.669 51.438,183.774 51.500,183.872 51.500 C 185.323 51.500,188.027 56.033,188.546 59.333 C 188.753 60.650,188.901 86.832,188.703 87.031 C 188.557 87.176,186.940 87.435,184.750 87.664 C 184.017 87.740,182.292 87.925,180.917 88.074 C 161.978 90.131,153.268 87.802,151.340 80.167 C 151.108 79.249,151.189 72.691,151.442 71.833 C 152.240 69.134,154.016 67.151,156.833 65.813 C 157.246 65.617,157.714 65.391,157.873 65.312 C 158.032 65.232,158.298 65.167,158.464 65.167 C 158.631 65.167,158.838 65.102,158.925 65.022 C 159.104 64.858,160.987 64.449,162.795 64.180 C 163.461 64.081,165.478 64.000,167.276 64.000 C 170.897 64.000,172.760 64.169,177.417 64.918 C 178.242 65.051,179.104 65.189,179.333 65.225 C 179.563 65.261,179.892 65.350,180.065 65.422 C 180.581 65.638,180.252 61.444,179.621 59.767 C 178.368 56.441,176.590 56.030,163.371 56.012 L 154.826 56.000 154.871 53.055 L 154.917 50.109 155.917 49.883 C 156.467 49.758,157.312 49.612,157.795 49.557 C 158.278 49.503,158.713 49.393,158.763 49.312 C 158.812 49.232,159.205 49.166,159.635 49.166 C 160.065 49.165,160.717 49.081,161.083 48.979 C 162.977 48.452,173.275 48.411,176.173 48.919 M269.750 48.914 C 272.937 49.441,277.054 50.779,277.306 51.370 C 277.336 51.441,277.472 51.500,277.607 51.500 C 277.928 51.500,280.500 54.072,280.500 54.393 C 280.500 54.528,280.556 54.664,280.625 54.694 C 280.694 54.725,280.871 55.012,281.018 55.333 C 282.497 58.547,282.500 58.591,282.500 73.865 C 282.500 83.307,282.448 87.012,282.315 87.095 C 282.069 87.247,280.414 87.459,274.667 88.076 C 264.461 89.172,255.406 88.928,252.627 87.484 C 252.468 87.401,252.243 87.333,252.127 87.333 C 250.892 87.328,246.333 83.939,246.333 83.025 C 246.333 82.919,246.273 82.833,246.199 82.833 C 246.082 82.833,245.830 82.318,245.343 81.083 C 244.623 79.259,244.625 73.209,245.345 71.417 C 245.419 71.233,245.524 70.922,245.579 70.725 C 246.452 67.588,250.519 65.108,256.250 64.216 C 257.545 64.015,264.717 64.061,266.667 64.283 C 269.418 64.596,271.041 64.832,271.583 64.995 C 271.858 65.079,272.496 65.170,273.000 65.198 L 273.917 65.250 273.968 63.833 C 274.083 60.678,272.888 58.062,270.897 57.107 C 270.541 56.936,270.120 56.730,269.961 56.648 C 269.801 56.567,269.478 56.500,269.241 56.500 C 269.005 56.500,268.648 56.407,268.447 56.294 C 268.175 56.140,265.624 56.067,258.333 56.003 L 248.583 55.917 248.538 53.149 C 248.503 51.059,248.544 50.341,248.704 50.219 C 249.071 49.941,250.970 49.544,253.713 49.172 C 254.335 49.088,255.010 48.966,255.213 48.900 C 256.626 48.446,266.979 48.456,269.750 48.914 M314.583 48.838 C 315.133 48.936,316.108 49.084,316.750 49.168 C 319.739 49.560,321.805 50.020,322.008 50.340 C 322.177 50.608,322.227 55.314,322.066 55.736 C 321.975 55.971,321.141 56.001,314.441 56.011 C 301.437 56.029,299.967 56.352,299.168 59.369 C 298.536 61.754,300.900 63.715,305.333 64.485 C 305.929 64.588,306.867 64.753,307.417 64.851 C 307.967 64.948,308.942 65.098,309.583 65.182 C 314.149 65.782,317.034 66.447,319.167 67.391 C 320.750 68.091,323.333 70.290,323.333 70.936 C 323.333 71.048,323.399 71.164,323.480 71.194 C 324.377 71.535,324.893 77.741,324.233 80.239 C 323.889 81.539,323.158 83.113,322.603 83.750 C 322.363 84.025,322.167 84.300,322.167 84.361 C 322.166 84.874,318.598 87.036,317.000 87.491 C 316.587 87.608,316.100 87.765,315.917 87.838 C 313.878 88.652,305.725 89.102,301.091 88.656 C 297.178 88.280,291.120 87.341,290.846 87.069 C 290.713 86.936,290.619 82.045,290.741 81.561 L 290.840 81.167 300.462 81.167 C 310.168 81.167,312.134 81.062,313.206 80.488 C 313.365 80.403,313.611 80.333,313.752 80.333 C 314.635 80.333,315.852 78.198,315.825 76.696 C 315.788 74.643,312.371 73.004,306.917 72.424 C 306.084 72.335,303.103 71.921,302.000 71.740 C 300.388 71.476,298.060 70.819,296.750 70.259 C 296.475 70.141,296.006 69.941,295.708 69.815 C 295.410 69.689,295.167 69.529,295.167 69.459 C 295.167 69.390,295.088 69.333,294.993 69.333 C 294.730 69.333,293.153 68.120,292.558 67.460 C 288.725 63.210,289.781 54.569,294.518 51.417 C 295.194 50.967,295.450 50.819,295.831 50.656 C 296.059 50.558,296.509 50.365,296.831 50.225 C 297.153 50.086,297.663 49.866,297.964 49.736 C 298.265 49.606,298.692 49.500,298.912 49.500 C 299.133 49.500,299.360 49.425,299.417 49.333 C 299.473 49.242,299.773 49.167,300.082 49.167 C 300.392 49.167,300.856 49.084,301.114 48.983 C 302.305 48.517,312.176 48.411,314.583 48.838 M359.250 48.918 C 361.288 49.334,362.761 49.747,363.833 50.203 C 364.514 50.493,365.910 51.216,366.000 51.326 C 366.046 51.382,366.461 51.701,366.923 52.036 C 368.400 53.105,370.013 55.725,370.644 58.083 C 371.774 62.306,371.580 76.924,370.349 80.250 C 368.746 84.580,365.524 87.069,360.083 88.180 C 356.274 88.958,346.228 88.958,342.417 88.180 C 340.688 87.827,338.983 87.261,337.661 86.602 C 334.107 84.829,331.952 81.414,331.393 76.667 C 331.013 73.442,331.318 60.228,331.817 58.250 C 332.198 56.742,333.235 54.552,333.958 53.728 C 334.210 53.441,334.567 53.023,334.750 52.800 C 334.933 52.577,335.383 52.175,335.750 51.907 C 336.117 51.638,336.454 51.381,336.500 51.334 C 336.726 51.106,337.931 50.484,338.750 50.173 C 338.933 50.103,339.367 49.923,339.714 49.773 C 340.061 49.623,340.563 49.500,340.829 49.500 C 341.096 49.500,341.360 49.425,341.417 49.333 C 341.473 49.242,341.773 49.167,342.082 49.167 C 342.392 49.167,342.856 49.084,343.114 48.984 C 344.476 48.453,356.729 48.402,359.250 48.918 M113.792 56.096 C 113.723 56.166,113.667 61.835,113.667 68.694 L 113.667 81.167 121.114 81.167 C 129.216 81.167,129.578 81.133,131.479 80.193 C 132.367 79.754,134.000 78.150,134.000 77.717 C 134.000 77.598,134.057 77.500,134.126 77.500 C 135.308 77.500,135.614 63.148,134.491 60.415 C 133.927 59.042,133.743 58.734,133.102 58.093 C 132.315 57.306,131.270 56.753,129.874 56.382 C 128.830 56.106,114.043 55.843,113.792 56.096 M213.250 56.110 C 209.742 56.392,207.649 57.833,206.753 60.583 C 206.041 62.767,205.961 74.461,206.647 76.250 C 207.431 78.298,209.122 80.333,210.039 80.333 C 210.164 80.333,210.338 80.398,210.425 80.478 C 211.084 81.079,212.636 81.182,220.250 81.132 L 227.750 81.083 227.793 68.677 C 227.827 58.862,227.792 56.243,227.626 56.138 C 227.432 56.015,214.741 55.990,213.250 56.110 M346.250 56.100 C 342.850 56.424,341.150 57.668,340.237 60.500 C 339.868 61.645,339.675 72.901,339.985 75.205 C 340.402 78.303,341.490 79.854,343.833 80.689 C 345.328 81.221,355.992 81.386,357.833 80.905 C 360.601 80.183,361.930 78.706,362.479 75.740 C 362.729 74.395,362.734 62.798,362.485 61.711 C 361.726 58.383,360.712 57.186,357.987 56.403 C 357.114 56.152,348.134 55.920,346.250 56.100 M164.250 71.096 C 160.444 71.832,159.667 72.652,159.667 75.926 C 159.667 81.063,160.431 81.389,172.500 81.406 L 180.250 81.417 180.250 76.167 L 180.250 70.917 172.833 70.894 C 167.202 70.876,165.136 70.925,164.250 71.096 M257.667 71.163 C 254.122 71.921,253.326 72.828,253.331 76.105 C 253.334 78.714,253.904 79.849,255.627 80.679 C 256.925 81.304,257.904 81.376,266.037 81.444 L 273.825 81.509 273.917 81.130 C 273.968 80.921,273.989 78.537,273.963 75.833 L 273.917 70.917 266.500 70.889 C 259.895 70.864,258.928 70.894,257.667 71.163 M78.000 81.667 C 78.000 82.408,78.060 82.667,78.231 82.667 C 78.358 82.667,78.677 82.779,78.939 82.916 C 79.202 83.053,79.618 83.165,79.865 83.166 C 80.112 83.166,80.360 83.242,80.417 83.333 C 80.473 83.425,80.727 83.500,80.980 83.500 C 81.233 83.500,81.809 83.605,82.261 83.732 C 84.032 84.233,85.194 84.100,83.875 83.548 C 83.623 83.442,82.929 83.079,82.333 82.740 C 78.183 80.381,78.000 80.336,78.000 81.667 "
+                                    stroke="none" fill="#242424" fill-rule="evenodd"></path>
+                                <path id="path3"
+                                    d="M105.208 33.110 C 104.963 33.209,104.901 86.586,105.146 86.972 C 105.312 87.234,106.638 87.438,112.333 88.079 C 121.360 89.094,130.716 88.982,134.295 87.817 C 137.461 86.786,138.721 86.045,140.448 84.202 C 141.279 83.315,142.280 81.554,142.646 80.333 C 142.742 80.012,142.906 79.487,143.010 79.167 C 143.577 77.424,143.847 62.938,143.370 59.833 C 142.810 56.182,141.209 53.213,138.918 51.578 C 137.366 50.470,135.376 49.607,133.500 49.226 C 133.271 49.179,132.521 49.018,131.833 48.868 C 129.990 48.466,121.133 48.477,119.333 48.884 C 118.646 49.039,117.807 49.166,117.468 49.167 C 117.130 49.167,116.807 49.242,116.750 49.333 C 116.693 49.425,116.398 49.500,116.094 49.500 C 115.791 49.500,115.223 49.612,114.833 49.750 C 114.444 49.887,114.022 50.000,113.896 50.000 C 113.704 50.000,113.667 48.629,113.667 41.700 C 113.667 35.467,113.617 33.350,113.467 33.200 C 113.267 33.000,105.686 32.918,105.208 33.110 M227.944 33.111 C 227.883 33.172,227.833 36.962,227.833 41.533 C 227.833 50.862,227.931 50.235,226.557 49.767 C 226.126 49.620,225.492 49.500,225.147 49.500 C 224.802 49.500,224.473 49.425,224.417 49.333 C 224.360 49.242,224.060 49.167,223.751 49.167 C 223.441 49.167,222.676 49.040,222.052 48.886 C 220.568 48.519,211.351 48.471,209.750 48.822 C 209.200 48.942,208.487 49.074,208.167 49.114 C 207.846 49.154,207.433 49.247,207.250 49.321 C 207.067 49.394,206.617 49.547,206.250 49.661 C 203.942 50.380,201.622 51.897,200.492 53.428 C 199.781 54.390,198.833 56.069,198.833 56.367 C 198.833 56.458,198.727 56.769,198.597 57.058 C 197.543 59.404,197.247 75.055,198.187 78.750 C 198.480 79.902,198.874 81.077,199.023 81.242 C 199.102 81.329,199.167 81.499,199.167 81.620 C 199.167 81.823,199.729 82.769,200.332 83.581 C 200.870 84.305,202.667 85.934,203.275 86.248 C 203.628 86.431,203.954 86.625,204.000 86.680 C 204.046 86.735,204.458 86.918,204.917 87.086 C 205.375 87.253,205.825 87.443,205.917 87.508 C 206.008 87.572,206.308 87.668,206.583 87.721 C 206.858 87.774,207.571 87.939,208.167 88.086 C 211.868 89.005,219.933 88.997,228.417 88.066 C 229.700 87.926,231.350 87.745,232.083 87.666 C 234.402 87.414,236.001 87.185,236.170 87.081 C 236.484 86.887,236.384 33.222,236.070 33.101 C 235.709 32.963,228.083 32.972,227.944 33.111 M113.167 41.486 C 113.167 45.971,113.212 49.758,113.268 49.903 C 113.386 50.212,114.100 50.243,115.083 49.982 C 115.450 49.885,116.087 49.744,116.500 49.669 C 116.912 49.594,117.962 49.403,118.833 49.243 C 122.321 48.605,132.159 48.786,133.539 49.514 C 133.699 49.598,133.961 49.667,134.123 49.667 C 134.741 49.667,136.986 50.624,138.286 51.442 C 140.102 52.584,141.881 54.977,142.417 57.000 C 142.477 57.229,142.641 57.829,142.781 58.333 C 143.564 61.158,143.628 75.738,142.870 78.667 C 142.249 81.067,140.829 83.751,139.668 84.719 C 138.345 85.821,135.980 87.167,135.366 87.167 C 135.195 87.167,135.002 87.220,134.936 87.286 C 134.315 87.908,128.813 88.568,124.417 88.548 C 120.900 88.532,112.038 87.980,111.672 87.753 C 111.580 87.697,110.811 87.578,109.961 87.490 C 106.374 87.117,105.683 87.030,105.513 86.924 C 105.386 86.846,105.333 78.969,105.333 60.073 L 105.333 33.333 109.250 33.333 L 113.167 33.333 113.167 41.486 M236.000 59.980 C 236.000 83.236,235.969 86.652,235.755 86.829 C 235.620 86.941,234.814 87.106,233.963 87.195 C 233.113 87.285,231.854 87.416,231.167 87.487 C 230.479 87.559,229.167 87.702,228.250 87.806 C 218.261 88.934,209.049 88.729,206.294 87.315 C 206.135 87.233,205.931 87.167,205.840 87.167 C 205.491 87.167,203.703 86.238,202.720 85.546 C 201.798 84.897,201.377 84.490,200.484 83.385 C 199.983 82.765,198.833 80.385,198.833 79.966 C 198.833 79.838,198.766 79.662,198.684 79.575 C 198.601 79.488,198.497 79.117,198.451 78.750 C 198.405 78.383,198.279 77.531,198.172 76.855 C 197.900 75.144,198.031 60.063,198.326 59.000 C 199.080 56.286,199.273 55.798,200.111 54.468 C 201.335 52.526,204.349 50.167,205.605 50.167 C 205.657 50.167,205.936 50.060,206.225 49.931 C 206.514 49.801,206.975 49.656,207.250 49.609 C 207.525 49.562,208.575 49.369,209.583 49.180 C 211.660 48.792,219.141 48.676,220.852 49.007 C 221.346 49.102,222.237 49.253,222.833 49.342 C 224.310 49.562,225.384 49.763,226.662 50.058 C 227.255 50.195,227.799 50.271,227.870 50.227 C 227.942 50.183,228.000 46.364,228.000 41.740 L 228.000 33.333 232.000 33.333 L 236.000 33.333 236.000 59.980 M163.667 48.659 C 162.612 48.733,161.450 48.877,161.083 48.979 C 160.717 49.081,160.065 49.165,159.635 49.166 C 159.205 49.166,158.812 49.232,158.763 49.312 C 158.713 49.393,158.278 49.503,157.795 49.557 C 157.312 49.612,156.467 49.758,155.917 49.883 L 154.917 50.109 154.871 53.055 L 154.826 56.000 163.371 56.012 C 173.858 56.026,175.119 56.126,177.083 57.095 C 179.317 58.198,180.029 59.697,180.276 63.818 C 180.375 65.475,180.365 65.547,180.065 65.422 C 179.892 65.350,179.563 65.261,179.333 65.225 C 179.104 65.189,178.242 65.051,177.417 64.918 C 170.102 63.741,165.006 63.652,160.333 64.619 C 159.646 64.761,159.012 64.943,158.925 65.022 C 158.838 65.102,158.631 65.167,158.464 65.167 C 158.298 65.167,158.032 65.232,157.873 65.312 C 157.714 65.391,157.246 65.617,156.833 65.813 C 154.016 67.151,152.240 69.134,151.442 71.833 C 151.189 72.691,151.108 79.249,151.340 80.167 C 153.268 87.802,161.978 90.131,180.917 88.074 C 182.292 87.925,184.017 87.740,184.750 87.664 C 186.940 87.435,188.557 87.176,188.703 87.031 C 188.901 86.832,188.753 60.650,188.546 59.333 C 188.027 56.033,185.323 51.500,183.872 51.500 C 183.774 51.500,183.669 51.438,183.639 51.362 C 183.505 51.028,180.513 49.882,178.417 49.361 C 175.559 48.651,168.539 48.317,163.667 48.659 M257.417 48.654 C 256.408 48.724,255.417 48.835,255.213 48.900 C 255.010 48.966,254.335 49.088,253.713 49.172 C 250.970 49.544,249.071 49.941,248.704 50.219 C 248.544 50.341,248.503 51.059,248.538 53.149 L 248.583 55.917 258.333 56.003 C 265.624 56.067,268.175 56.140,268.447 56.294 C 268.648 56.407,269.005 56.500,269.241 56.500 C 269.478 56.500,269.801 56.567,269.961 56.648 C 270.120 56.730,270.541 56.936,270.897 57.107 C 272.888 58.062,274.083 60.678,273.968 63.833 L 273.917 65.250 273.000 65.198 C 272.496 65.170,271.858 65.079,271.583 64.995 C 271.041 64.832,269.418 64.596,266.667 64.283 C 264.717 64.061,257.545 64.015,256.250 64.216 C 250.519 65.108,246.452 67.588,245.579 70.725 C 245.524 70.922,245.419 71.233,245.345 71.417 C 244.625 73.209,244.623 79.259,245.343 81.083 C 245.830 82.318,246.082 82.833,246.199 82.833 C 246.273 82.833,246.333 82.919,246.333 83.025 C 246.333 83.939,250.892 87.328,252.127 87.333 C 252.243 87.333,252.468 87.401,252.627 87.484 C 255.406 88.928,264.461 89.172,274.667 88.076 C 280.414 87.459,282.069 87.247,282.315 87.095 C 282.448 87.012,282.500 83.307,282.500 73.865 C 282.500 58.591,282.497 58.547,281.018 55.333 C 280.871 55.012,280.694 54.725,280.625 54.694 C 280.556 54.664,280.500 54.528,280.500 54.393 C 280.500 54.072,277.928 51.500,277.607 51.500 C 277.472 51.500,277.336 51.441,277.306 51.370 C 277.153 51.012,274.347 49.931,272.083 49.359 C 269.352 48.668,262.175 48.323,257.417 48.654 M303.167 48.661 C 302.296 48.737,301.372 48.882,301.114 48.983 C 300.856 49.084,300.392 49.167,300.082 49.167 C 299.773 49.167,299.473 49.242,299.417 49.333 C 299.360 49.425,299.133 49.500,298.912 49.500 C 298.692 49.500,298.265 49.606,297.964 49.736 C 297.663 49.866,297.153 50.086,296.831 50.225 C 296.509 50.365,296.059 50.558,295.831 50.656 C 295.450 50.819,295.194 50.967,294.518 51.417 C 289.781 54.569,288.725 63.210,292.558 67.460 C 293.153 68.120,294.730 69.333,294.993 69.333 C 295.088 69.333,295.167 69.390,295.167 69.459 C 295.167 69.529,295.410 69.689,295.708 69.815 C 296.006 69.941,296.475 70.141,296.750 70.259 C 298.060 70.819,300.388 71.476,302.000 71.740 C 303.103 71.921,306.084 72.335,306.917 72.424 C 312.371 73.004,315.788 74.643,315.825 76.696 C 315.852 78.198,314.635 80.333,313.752 80.333 C 313.611 80.333,313.365 80.403,313.206 80.488 C 312.134 81.062,310.168 81.167,300.462 81.167 L 290.840 81.167 290.741 81.561 C 290.619 82.045,290.713 86.936,290.846 87.069 C 291.120 87.341,297.178 88.280,301.091 88.656 C 305.725 89.102,313.878 88.652,315.917 87.838 C 316.100 87.765,316.587 87.608,317.000 87.491 C 318.598 87.036,322.166 84.874,322.167 84.361 C 322.167 84.300,322.363 84.025,322.603 83.750 C 323.158 83.113,323.889 81.539,324.233 80.239 C 324.893 77.741,324.377 71.535,323.480 71.194 C 323.399 71.164,323.333 71.048,323.333 70.936 C 323.333 70.824,322.958 70.312,322.500 69.798 C 320.322 67.355,316.954 66.151,309.583 65.182 C 308.942 65.098,307.967 64.948,307.417 64.851 C 306.867 64.753,305.929 64.588,305.333 64.485 C 300.900 63.715,298.536 61.754,299.168 59.369 C 299.967 56.352,301.437 56.029,314.441 56.011 C 321.141 56.001,321.975 55.971,322.066 55.736 C 322.227 55.314,322.177 50.608,322.008 50.340 C 321.805 50.020,319.739 49.560,316.750 49.168 C 316.108 49.084,315.133 48.936,314.583 48.838 C 313.285 48.608,305.212 48.482,303.167 48.661 M345.500 48.663 C 344.446 48.739,343.372 48.883,343.114 48.984 C 342.856 49.084,342.392 49.167,342.082 49.167 C 341.773 49.167,341.473 49.242,341.417 49.333 C 341.360 49.425,341.096 49.500,340.829 49.500 C 340.563 49.500,340.061 49.623,339.714 49.773 C 339.367 49.923,338.933 50.103,338.750 50.173 C 337.931 50.484,336.726 51.106,336.500 51.334 C 336.454 51.381,336.117 51.638,335.750 51.907 C 335.383 52.175,334.933 52.577,334.750 52.800 C 334.567 53.023,334.210 53.441,333.958 53.728 C 333.235 54.552,332.198 56.742,331.817 58.250 C 331.318 60.228,331.013 73.442,331.393 76.667 C 332.039 82.148,334.900 85.929,339.500 87.382 C 343.029 88.496,345.137 88.743,351.167 88.747 C 357.237 88.751,359.478 88.494,362.950 87.398 C 366.393 86.310,369.059 83.734,370.349 80.250 C 371.580 76.924,371.774 62.306,370.644 58.083 C 370.013 55.725,368.400 53.105,366.923 52.036 C 366.461 51.701,366.046 51.382,366.000 51.326 C 365.910 51.216,364.514 50.493,363.833 50.203 C 362.761 49.747,361.288 49.334,359.250 48.918 C 357.687 48.598,348.706 48.432,345.500 48.663 M176.333 49.244 C 177.112 49.396,178.012 49.558,178.333 49.604 C 178.654 49.650,179.067 49.751,179.250 49.830 C 179.433 49.908,179.996 50.102,180.500 50.261 C 182.595 50.922,184.858 52.249,185.588 53.246 C 185.769 53.492,186.067 53.873,186.251 54.092 C 186.578 54.481,186.950 55.164,187.289 56.000 C 187.382 56.229,187.548 56.637,187.657 56.907 C 188.433 58.824,188.528 60.540,188.606 73.932 C 188.670 84.918,188.648 86.642,188.437 86.817 C 188.303 86.928,187.531 87.088,186.721 87.173 C 185.912 87.257,184.500 87.403,183.583 87.496 C 182.667 87.589,181.804 87.709,181.667 87.762 C 180.579 88.182,168.272 88.670,165.381 88.407 C 161.846 88.086,159.187 87.540,157.905 86.873 C 157.728 86.781,157.358 86.605,157.083 86.483 C 155.305 85.691,153.227 83.861,152.550 82.492 C 151.968 81.317,151.667 80.491,151.667 80.073 C 151.667 79.860,151.592 79.640,151.500 79.583 C 151.243 79.424,151.290 73.955,151.560 72.667 C 151.804 71.505,152.435 69.889,152.785 69.530 C 152.903 69.409,153.000 69.248,153.000 69.174 C 153.000 68.499,156.897 65.667,157.825 65.667 C 157.976 65.667,158.171 65.603,158.258 65.525 C 158.862 64.984,164.230 64.167,167.186 64.166 C 169.927 64.166,177.008 64.965,179.286 65.532 C 180.462 65.825,180.500 65.765,180.500 63.610 C 180.500 60.064,179.417 57.893,177.083 56.762 C 175.422 55.957,174.138 55.868,163.825 55.849 C 157.512 55.837,155.350 55.783,155.200 55.633 C 155.063 55.496,155.000 54.669,155.000 52.995 C 155.000 49.919,154.530 50.200,161.243 49.264 C 162.339 49.111,163.276 48.947,163.324 48.898 C 163.551 48.672,174.948 48.975,176.333 49.244 M269.917 49.221 C 270.650 49.360,271.550 49.523,271.917 49.583 C 272.283 49.644,272.733 49.756,272.917 49.832 C 273.100 49.908,273.662 50.093,274.167 50.244 C 274.671 50.395,275.479 50.702,275.963 50.926 C 276.447 51.150,276.915 51.333,277.005 51.333 C 277.094 51.333,277.167 51.408,277.167 51.500 C 277.167 51.592,277.269 51.667,277.393 51.667 C 278.111 51.667,281.167 55.462,281.167 56.355 C 281.167 56.515,281.233 56.688,281.315 56.739 C 281.396 56.789,281.502 57.075,281.549 57.373 C 281.596 57.672,281.710 58.217,281.802 58.583 C 282.263 60.419,282.333 62.526,282.333 74.456 L 282.333 86.811 281.977 86.924 C 281.622 87.037,280.343 87.191,277.333 87.486 C 276.462 87.572,275.637 87.685,275.500 87.739 C 275.174 87.865,271.853 88.106,266.249 88.409 C 260.314 88.729,255.653 88.353,252.917 87.331 C 250.077 86.271,249.386 85.869,247.909 84.417 C 245.668 82.214,245.000 80.365,245.000 76.359 C 245.000 73.353,245.233 72.174,246.224 70.167 C 247.293 68.000,248.935 66.654,251.917 65.499 C 255.998 63.919,263.596 63.824,271.500 65.254 C 272.371 65.412,273.308 65.550,273.583 65.562 L 274.083 65.583 274.131 63.763 C 274.180 61.875,274.002 60.585,273.580 59.770 C 273.444 59.509,273.333 59.224,273.333 59.136 C 273.333 58.617,271.184 56.667,270.611 56.667 C 270.489 56.667,270.335 56.613,270.270 56.547 C 269.771 56.049,268.413 55.968,258.750 55.860 L 248.917 55.750 248.871 53.149 C 248.837 51.196,248.878 50.505,249.038 50.377 C 249.328 50.144,251.433 49.734,254.333 49.345 C 255.021 49.252,255.996 49.106,256.500 49.019 C 257.975 48.764,268.327 48.921,269.917 49.221 M313.583 48.997 C 314.133 49.085,315.221 49.240,316.000 49.341 C 319.266 49.762,321.682 50.256,321.861 50.539 C 322.029 50.803,322.039 55.349,321.872 55.606 C 321.785 55.742,319.120 55.818,312.417 55.877 C 306.456 55.929,302.903 56.022,302.583 56.135 C 302.308 56.233,301.769 56.403,301.384 56.514 C 298.829 57.246,297.960 60.752,299.885 62.563 C 300.272 62.928,301.496 63.667,301.713 63.667 C 301.834 63.667,302.005 63.731,302.092 63.811 C 302.305 64.005,303.269 64.343,304.083 64.509 C 305.937 64.888,307.709 65.204,308.833 65.357 C 311.156 65.671,311.912 65.793,313.333 66.081 C 314.112 66.239,315.087 66.424,315.500 66.492 C 316.300 66.623,318.226 67.230,318.706 67.503 C 318.865 67.593,319.109 67.667,319.248 67.667 C 319.386 67.667,319.500 67.727,319.500 67.801 C 319.500 67.875,319.801 68.069,320.169 68.231 C 320.827 68.521,323.000 70.506,323.000 70.817 C 323.000 70.904,323.094 71.075,323.208 71.196 C 324.775 72.853,324.664 79.660,323.021 82.667 C 322.015 84.507,318.493 87.167,317.060 87.167 C 316.933 87.167,316.699 87.234,316.539 87.315 C 316.042 87.571,314.408 88.000,313.934 88.000 C 313.685 88.000,313.166 88.069,312.782 88.154 C 309.618 88.852,302.003 88.691,296.167 87.802 C 291.960 87.161,291.333 87.041,291.075 86.826 C 290.824 86.618,290.715 82.542,290.938 81.708 L 291.039 81.333 301.028 81.333 C 311.160 81.333,312.951 81.236,313.575 80.649 C 313.662 80.567,313.850 80.499,313.992 80.497 C 314.303 80.494,315.333 79.615,315.333 79.353 C 315.333 79.251,315.396 79.167,315.474 79.167 C 316.058 79.167,316.173 76.141,315.621 75.316 C 315.193 74.678,313.844 73.710,313.186 73.568 C 312.946 73.516,312.600 73.413,312.417 73.339 C 311.212 72.850,306.957 72.000,305.713 72.000 C 305.337 72.000,304.441 71.888,303.723 71.750 C 303.005 71.613,302.177 71.500,301.885 71.500 C 301.592 71.500,301.307 71.425,301.250 71.333 C 301.193 71.242,300.941 71.167,300.690 71.167 C 300.147 71.167,296.744 70.081,296.214 69.738 C 296.011 69.607,295.730 69.500,295.589 69.500 C 295.448 69.500,295.333 69.439,295.333 69.364 C 295.333 69.289,295.025 69.055,294.647 68.842 C 293.837 68.387,292.189 66.763,291.834 66.071 C 291.696 65.803,291.546 65.546,291.499 65.500 C 291.090 65.097,290.499 62.228,290.503 60.667 C 290.515 55.879,292.625 52.276,296.333 50.710 C 296.563 50.613,297.024 50.414,297.359 50.267 C 297.693 50.120,298.083 50.000,298.224 50.000 C 298.365 50.000,298.527 49.925,298.583 49.833 C 298.640 49.742,298.883 49.667,299.123 49.667 C 299.363 49.667,299.790 49.594,300.072 49.506 C 302.045 48.886,310.839 48.555,313.583 48.997 M358.667 49.168 C 361.617 49.658,361.715 49.679,362.275 49.931 C 362.564 50.060,362.884 50.167,362.986 50.167 C 363.088 50.167,363.301 50.233,363.461 50.314 C 363.620 50.395,363.975 50.561,364.250 50.684 C 366.204 51.555,369.167 54.251,369.167 55.160 C 369.167 55.255,369.242 55.333,369.333 55.333 C 369.425 55.333,369.500 55.469,369.500 55.635 C 369.500 55.801,369.610 56.082,369.745 56.260 C 369.879 56.438,369.992 56.748,369.995 56.948 C 369.998 57.149,370.067 57.355,370.149 57.406 C 370.231 57.456,370.337 57.780,370.385 58.124 C 370.433 58.468,370.568 59.125,370.686 59.583 C 371.003 60.819,371.007 76.187,370.690 77.583 C 370.565 78.133,370.429 78.808,370.387 79.083 C 370.345 79.358,370.250 79.733,370.175 79.917 C 370.101 80.100,369.903 80.587,369.736 81.000 C 368.518 84.009,366.489 85.764,362.417 87.329 C 362.005 87.488,359.951 87.919,358.500 88.152 C 353.346 88.980,342.598 88.485,340.294 87.314 C 340.135 87.233,339.900 87.167,339.773 87.167 C 339.414 87.167,337.729 86.384,336.776 85.774 C 334.245 84.153,332.746 81.773,331.853 77.956 C 331.593 76.848,331.596 60.470,331.855 59.377 C 332.568 56.376,333.284 54.813,334.624 53.332 C 335.571 52.286,336.945 51.258,338.042 50.775 C 338.385 50.624,338.922 50.387,339.234 50.250 C 339.545 50.112,339.916 50.000,340.057 50.000 C 340.198 50.000,340.360 49.925,340.417 49.833 C 340.473 49.742,340.716 49.667,340.956 49.667 C 341.197 49.667,341.623 49.594,341.905 49.505 C 344.233 48.770,354.968 48.554,358.667 49.168 M113.375 56.019 C 113.155 56.245,113.052 80.506,113.268 81.070 C 113.358 81.305,114.224 81.334,121.309 81.335 L 129.250 81.337 130.554 80.886 C 132.909 80.070,134.293 78.463,135.073 75.641 C 135.462 74.234,135.456 62.899,135.065 61.428 C 134.312 58.584,133.201 57.274,130.750 56.336 C 129.527 55.867,113.802 55.581,113.375 56.019 M212.667 55.946 C 210.158 56.090,207.788 57.526,206.942 59.417 C 206.400 60.629,206.357 60.745,206.235 61.333 C 206.012 62.402,205.961 74.330,206.175 75.333 C 206.805 78.289,208.203 79.970,210.802 80.898 L 212.020 81.333 220.011 81.333 L 228.002 81.333 227.959 68.625 L 227.917 55.917 220.750 55.905 C 216.808 55.899,213.171 55.917,212.667 55.946 M345.500 55.986 C 344.230 56.106,344.095 56.141,342.917 56.667 C 341.316 57.382,340.259 59.009,339.756 61.535 C 339.149 64.584,339.460 75.800,340.199 77.500 C 341.083 79.533,342.115 80.459,344.183 81.073 C 345.478 81.457,357.022 81.457,358.317 81.073 C 360.594 80.397,361.973 78.991,362.559 76.750 C 362.793 75.854,362.795 61.489,362.561 60.583 C 362.056 58.631,360.565 56.985,358.714 56.339 C 357.512 55.919,348.711 55.684,345.500 55.986 M129.874 56.382 C 131.865 56.910,133.481 58.062,134.041 59.352 C 134.615 60.672,134.707 60.982,134.928 62.331 C 135.254 64.317,135.256 72.909,134.931 74.750 C 134.657 76.300,134.306 77.500,134.126 77.500 C 134.057 77.500,134.000 77.598,134.000 77.717 C 134.000 78.150,132.367 79.754,131.479 80.193 C 129.578 81.133,129.216 81.167,121.114 81.167 L 113.667 81.167 113.667 68.694 C 113.667 61.835,113.723 56.166,113.792 56.096 C 114.043 55.843,128.830 56.106,129.874 56.382 M227.626 56.138 C 227.792 56.243,227.827 58.862,227.793 68.677 L 227.750 81.083 220.250 81.132 C 212.636 81.182,211.084 81.079,210.425 80.478 C 210.338 80.398,210.164 80.333,210.039 80.333 C 209.122 80.333,207.431 78.298,206.647 76.250 C 205.961 74.461,206.041 62.767,206.753 60.583 C 207.649 57.833,209.742 56.392,213.250 56.110 C 214.741 55.990,227.432 56.015,227.626 56.138 M357.987 56.403 C 360.712 57.186,361.726 58.383,362.485 61.711 C 362.734 62.798,362.729 74.395,362.479 75.740 C 361.930 78.706,360.601 80.183,357.833 80.905 C 355.992 81.386,345.328 81.221,343.833 80.689 C 341.490 79.854,340.402 78.303,339.985 75.205 C 339.675 72.901,339.868 61.645,340.237 60.500 C 341.150 57.668,342.850 56.424,346.250 56.100 C 348.134 55.920,357.114 56.152,357.987 56.403 M163.417 70.990 C 161.228 71.549,159.810 72.528,159.567 73.648 C 159.515 73.888,159.404 74.301,159.320 74.567 C 158.848 76.058,159.391 78.793,160.388 79.947 C 161.717 81.484,162.288 81.564,172.000 81.574 L 180.417 81.583 180.417 76.167 L 180.417 70.750 172.500 70.721 C 165.382 70.695,164.466 70.722,163.417 70.990 M257.037 70.998 C 253.889 71.793,253.083 72.829,253.083 76.083 C 253.083 79.476,254.065 80.772,257.167 81.476 C 257.849 81.631,260.131 81.672,266.083 81.634 L 274.083 81.583 274.083 76.167 L 274.083 70.750 266.167 70.721 C 258.975 70.694,258.139 70.720,257.037 70.998 M180.250 76.167 L 180.250 81.417 172.500 81.406 C 163.042 81.393,162.141 81.282,160.832 79.973 C 159.202 78.343,159.136 73.939,160.718 72.435 C 162.126 71.096,163.935 70.866,172.833 70.894 L 180.250 70.917 180.250 76.167 M273.963 75.833 C 273.989 78.537,273.968 80.921,273.917 81.130 L 273.825 81.509 266.037 81.444 C 256.538 81.365,255.661 81.236,254.335 79.726 C 252.683 77.845,252.959 73.412,254.807 72.162 C 256.511 71.010,257.918 70.856,266.500 70.889 L 273.917 70.917 273.963 75.833 "
+                                    stroke="none" fill="#949494" fill-rule="evenodd"></path>
+                                <path id="path4"
+                                    d="M23.606 12.870 C 23.444 13.478,23.483 73.601,23.647 74.031 C 23.727 74.243,24.110 74.586,24.498 74.793 C 25.754 75.463,26.248 75.748,26.333 75.850 C 26.379 75.905,26.765 76.143,27.192 76.379 C 27.618 76.615,28.273 77.001,28.647 77.237 C 29.021 77.474,29.377 77.667,29.439 77.667 C 29.501 77.667,29.784 77.836,30.068 78.043 C 30.351 78.250,30.921 78.599,31.333 78.818 C 31.746 79.037,32.202 79.318,32.346 79.441 C 32.491 79.565,32.658 79.667,32.717 79.667 C 32.818 79.667,34.069 80.402,36.454 81.864 C 37.025 82.214,37.530 82.500,37.576 82.500 C 37.622 82.500,38.071 82.763,38.572 83.083 C 39.074 83.404,39.529 83.667,39.584 83.667 C 39.639 83.667,39.960 83.854,40.298 84.083 C 41.184 84.686,40.869 84.806,44.954 82.303 C 45.525 81.953,46.044 81.667,46.108 81.667 C 46.172 81.667,46.342 81.565,46.487 81.441 C 46.632 81.318,47.087 81.037,47.500 80.818 C 47.913 80.599,48.482 80.250,48.766 80.043 C 49.049 79.836,49.334 79.667,49.399 79.667 C 49.463 79.667,49.906 79.422,50.383 79.122 C 50.860 78.823,51.531 78.431,51.875 78.251 C 52.219 78.071,52.500 77.866,52.500 77.795 C 52.500 77.725,52.572 77.667,52.661 77.667 C 52.749 77.667,53.671 77.160,54.709 76.542 C 55.747 75.923,56.869 75.272,57.201 75.095 C 58.463 74.422,58.618 74.240,58.262 73.846 C 58.089 73.656,57.886 73.500,57.809 73.500 C 57.733 73.500,57.144 73.162,56.500 72.750 C 55.856 72.337,55.291 72.000,55.244 72.000 C 55.197 72.000,54.692 71.713,54.121 71.361 C 53.245 70.822,52.211 70.203,50.257 69.049 C 50.070 68.938,49.767 68.771,49.583 68.677 C 49.400 68.583,48.950 68.316,48.583 68.084 C 48.217 67.851,47.785 67.616,47.625 67.561 C 47.465 67.506,47.333 67.395,47.333 67.314 C 47.333 67.233,47.255 67.167,47.159 67.167 C 47.063 67.167,46.574 66.904,46.072 66.583 C 45.571 66.263,45.122 66.000,45.076 66.000 C 45.030 66.000,44.525 65.707,43.954 65.350 C 43.384 64.992,42.579 64.512,42.167 64.283 L 41.417 63.866 41.333 43.375 C 41.266 26.936,41.207 22.833,41.034 22.624 C 40.915 22.481,40.578 22.243,40.284 22.094 C 39.990 21.946,39.604 21.732,39.426 21.620 C 38.280 20.898,37.340 20.333,37.287 20.333 C 37.253 20.333,36.038 19.621,34.588 18.750 C 33.137 17.879,31.923 17.167,31.890 17.167 C 31.857 17.167,31.231 16.792,30.500 16.333 C 29.769 15.875,29.133 15.500,29.088 15.500 C 29.043 15.500,28.596 15.237,28.095 14.917 C 27.593 14.596,27.148 14.333,27.105 14.333 C 27.062 14.333,26.439 13.969,25.722 13.524 C 24.016 12.467,23.737 12.381,23.606 12.870 M24.833 13.250 C 25.196 13.479,25.537 13.667,25.591 13.667 C 25.645 13.667,25.935 13.854,26.235 14.083 C 26.536 14.313,26.834 14.500,26.899 14.500 C 26.963 14.500,27.406 14.748,27.883 15.052 C 28.360 15.355,28.863 15.655,29.000 15.717 C 29.290 15.849,29.879 16.212,30.000 16.333 C 30.075 16.408,30.649 16.736,31.583 17.238 C 31.767 17.336,31.954 17.454,32.000 17.500 C 32.046 17.546,32.233 17.664,32.417 17.762 C 33.231 18.200,33.920 18.593,34.078 18.712 C 34.359 18.923,37.016 20.500,37.091 20.500 C 37.129 20.500,37.571 20.762,38.072 21.083 C 38.574 21.404,39.027 21.667,39.079 21.667 C 39.248 21.667,40.577 22.557,40.792 22.814 C 40.956 23.011,41.000 27.383,41.000 43.437 L 41.000 63.811 41.484 64.155 C 41.750 64.345,42.011 64.500,42.064 64.500 C 42.117 64.500,42.571 64.762,43.072 65.083 C 43.574 65.404,44.056 65.667,44.145 65.667 C 44.233 65.667,44.331 65.730,44.361 65.808 C 44.413 65.939,45.055 66.328,46.500 67.104 C 46.821 67.276,47.108 67.473,47.139 67.542 C 47.169 67.610,47.264 67.667,47.349 67.667 C 47.434 67.667,48.102 68.042,48.833 68.500 C 49.565 68.958,50.239 69.333,50.332 69.333 C 50.424 69.333,50.500 69.408,50.500 69.500 C 50.500 69.592,50.579 69.667,50.675 69.667 C 50.771 69.667,51.260 69.929,51.761 70.250 C 52.263 70.571,52.711 70.833,52.757 70.833 C 52.804 70.833,53.308 71.121,53.879 71.472 C 55.064 72.202,57.261 73.498,57.737 73.748 C 58.262 74.024,58.215 74.271,57.574 74.603 C 57.240 74.775,56.825 74.991,56.651 75.081 C 56.476 75.172,56.333 75.303,56.333 75.373 C 56.333 75.443,56.268 75.500,56.189 75.500 C 56.054 75.500,54.455 76.411,53.031 77.300 C 52.693 77.511,52.210 77.771,51.958 77.878 C 51.706 77.985,51.500 78.132,51.500 78.203 C 51.500 78.275,51.426 78.333,51.337 78.333 C 51.247 78.333,50.763 78.596,50.261 78.917 C 49.760 79.237,49.310 79.500,49.261 79.500 C 49.213 79.500,48.778 79.750,48.295 80.055 C 47.812 80.360,47.304 80.660,47.167 80.721 C 47.029 80.781,46.804 80.909,46.667 81.003 C 46.529 81.098,45.225 81.880,43.768 82.741 L 41.119 84.307 40.479 83.904 C 40.128 83.682,39.794 83.500,39.737 83.500 C 39.681 83.500,39.436 83.359,39.192 83.187 C 38.949 83.015,38.487 82.732,38.167 82.557 C 37.693 82.299,33.579 79.861,32.250 79.050 C 32.067 78.938,31.804 78.793,31.667 78.728 C 31.529 78.663,31.021 78.360,30.538 78.055 C 30.055 77.750,29.621 77.500,29.572 77.500 C 29.524 77.500,29.074 77.237,28.572 76.917 C 28.071 76.596,27.621 76.333,27.572 76.333 C 27.495 76.333,26.360 75.656,25.407 75.041 C 25.229 74.926,24.926 74.764,24.734 74.680 C 23.758 74.254,23.833 76.865,23.833 43.516 C 23.833 26.763,23.883 13.006,23.944 12.944 C 24.101 12.788,24.101 12.788,24.833 13.250 M45.767 40.622 C 45.712 40.677,45.667 45.272,45.667 50.832 L 45.667 60.942 46.052 61.304 C 46.265 61.504,46.521 61.667,46.622 61.667 C 46.723 61.667,46.831 61.727,46.861 61.800 C 46.892 61.873,47.404 62.211,48.000 62.551 C 49.176 63.220,49.371 63.335,52.559 65.228 C 53.737 65.928,54.729 66.500,54.764 66.500 C 54.798 66.500,55.237 66.762,55.739 67.083 C 56.240 67.404,56.703 67.667,56.768 67.667 C 56.832 67.667,57.131 67.854,57.431 68.083 C 57.732 68.313,58.024 68.500,58.080 68.500 C 58.137 68.500,58.593 68.762,59.095 69.083 C 59.596 69.404,60.046 69.667,60.095 69.667 C 60.143 69.667,60.593 69.929,61.095 70.250 C 61.596 70.571,62.043 70.833,62.088 70.833 C 62.133 70.833,62.769 71.208,63.500 71.667 C 64.231 72.125,64.867 72.500,64.912 72.500 C 64.957 72.500,65.404 72.762,65.905 73.083 C 66.407 73.404,66.864 73.667,66.921 73.667 C 67.785 73.667,67.443 74.462,66.333 75.033 C 66.104 75.151,64.878 75.867,63.608 76.624 C 62.338 77.381,61.268 78.000,61.230 78.000 C 61.191 78.000,60.857 78.192,60.486 78.426 C 60.115 78.660,59.573 78.987,59.281 79.154 C 58.989 79.321,57.137 80.414,55.167 81.583 C 53.196 82.753,51.246 83.899,50.833 84.129 C 50.421 84.359,49.884 84.687,49.641 84.857 C 49.398 85.027,49.156 85.167,49.104 85.167 C 49.052 85.167,48.463 85.497,47.796 85.902 C 44.362 87.984,40.967 90.000,40.897 90.000 C 40.853 90.000,40.427 90.248,39.950 90.552 C 39.473 90.855,38.971 91.155,38.833 91.217 C 38.696 91.280,38.471 91.408,38.333 91.503 C 38.196 91.597,37.039 92.292,35.763 93.047 C 33.178 94.577,33.091 94.670,33.868 95.073 C 34.170 95.230,34.567 95.447,34.750 95.555 C 34.933 95.664,36.208 96.418,37.583 97.231 C 38.958 98.043,40.550 98.999,41.121 99.354 C 41.692 99.709,42.192 100.000,42.233 100.000 C 42.274 100.000,42.912 100.375,43.651 100.833 C 44.390 101.292,45.022 101.667,45.055 101.667 C 45.089 101.667,46.304 102.379,47.754 103.250 C 50.671 105.001,50.696 105.008,51.567 104.417 C 51.905 104.187,52.214 104.000,52.253 104.000 C 52.319 104.000,55.287 102.256,57.538 100.895 C 58.064 100.577,58.664 100.225,58.872 100.111 C 59.080 99.998,59.850 99.547,60.583 99.109 C 62.442 97.998,62.471 97.981,63.458 97.375 C 63.943 97.077,64.378 96.833,64.424 96.833 C 64.470 96.833,64.975 96.547,65.546 96.197 C 66.853 95.396,68.410 94.468,69.167 94.039 C 69.487 93.857,71.175 92.865,72.917 91.833 C 74.658 90.802,76.346 89.809,76.667 89.628 C 77.477 89.169,78.947 88.289,80.970 87.052 C 81.916 86.473,82.726 86.000,82.770 86.000 C 82.813 86.000,83.260 85.737,83.761 85.417 C 84.263 85.096,84.733 84.833,84.805 84.833 C 84.878 84.833,85.101 84.680,85.302 84.494 L 85.667 84.154 85.667 74.149 C 85.667 64.393,85.624 63.500,85.153 63.500 C 85.060 63.500,84.574 63.237,84.072 62.917 C 83.571 62.596,83.130 62.333,83.093 62.333 C 83.057 62.333,82.422 61.958,81.683 61.500 C 80.944 61.042,80.302 60.667,80.256 60.667 C 80.210 60.667,79.763 60.404,79.261 60.083 C 78.760 59.762,78.271 59.500,78.175 59.500 C 78.079 59.500,78.000 59.425,78.000 59.333 C 78.000 59.242,77.921 59.167,77.825 59.167 C 77.729 59.167,77.240 58.904,76.739 58.583 C 76.237 58.262,75.789 58.000,75.743 58.000 C 75.698 58.000,75.352 57.805,74.974 57.567 C 74.090 57.009,68.312 53.584,67.333 53.038 C 66.921 52.807,66.384 52.480,66.141 52.310 C 65.898 52.139,65.653 52.000,65.597 52.000 C 65.542 52.000,64.898 51.625,64.167 51.167 C 63.435 50.708,62.800 50.333,62.755 50.333 C 62.710 50.333,62.263 50.071,61.761 49.750 C 61.260 49.429,60.795 49.167,60.729 49.167 C 60.664 49.167,60.491 49.065,60.346 48.941 C 60.202 48.818,59.746 48.537,59.333 48.318 C 58.921 48.099,58.351 47.750,58.068 47.543 C 57.784 47.336,57.499 47.167,57.435 47.167 C 57.370 47.167,56.927 46.917,56.449 46.611 C 55.971 46.306,55.244 45.865,54.832 45.632 C 54.420 45.399,52.658 44.365,50.917 43.334 C 46.194 40.536,45.970 40.419,45.767 40.622 M49.750 42.915 C 50.942 43.626,52.254 44.397,52.667 44.628 C 53.079 44.859,53.616 45.187,53.859 45.357 C 54.102 45.527,54.347 45.667,54.403 45.667 C 54.458 45.667,55.102 46.042,55.833 46.500 C 56.565 46.958,57.200 47.333,57.245 47.333 C 57.290 47.333,57.737 47.596,58.239 47.917 C 58.740 48.237,59.205 48.500,59.271 48.500 C 59.336 48.500,59.509 48.601,59.654 48.725 C 59.798 48.849,60.254 49.130,60.667 49.350 C 61.079 49.570,61.454 49.795,61.500 49.850 C 61.546 49.905,62.033 50.197,62.583 50.499 C 63.133 50.800,63.782 51.187,64.026 51.357 C 64.269 51.527,64.505 51.667,64.551 51.667 C 64.624 51.667,67.939 53.632,71.463 55.766 C 72.130 56.170,72.715 56.500,72.762 56.500 C 72.810 56.500,73.260 56.762,73.761 57.083 C 74.263 57.404,74.721 57.667,74.779 57.667 C 74.837 57.667,75.131 57.854,75.431 58.083 C 75.732 58.313,76.022 58.500,76.076 58.500 C 76.129 58.500,76.486 58.697,76.868 58.939 C 77.992 59.648,79.228 60.345,79.542 60.445 C 79.702 60.497,79.833 60.605,79.833 60.686 C 79.833 60.767,79.909 60.833,80.002 60.833 C 80.094 60.833,80.769 61.208,81.500 61.667 C 82.231 62.125,82.867 62.500,82.912 62.500 C 83.087 62.500,84.928 63.722,85.125 63.969 C 85.468 64.399,85.425 83.833,85.081 83.833 C 84.846 83.833,84.189 83.527,84.000 83.329 C 83.804 83.125,82.997 82.667,82.832 82.667 C 82.733 82.667,82.562 82.591,82.451 82.498 C 81.949 82.076,80.963 81.500,80.743 81.500 C 80.609 81.500,80.500 81.441,80.500 81.369 C 80.500 81.296,80.069 81.015,79.542 80.744 C 79.015 80.473,78.546 80.208,78.500 80.155 C 78.454 80.102,78.304 80.011,78.167 79.952 C 78.029 79.892,77.542 79.618,77.083 79.341 C 76.625 79.064,76.139 78.784,76.002 78.719 C 75.866 78.654,74.854 78.080,73.752 77.444 C 71.750 76.286,71.404 76.089,70.000 75.300 C 68.455 74.432,67.907 74.103,67.583 73.847 C 67.400 73.702,67.100 73.503,66.917 73.404 C 65.982 72.903,65.408 72.575,65.333 72.500 C 65.287 72.454,65.100 72.336,64.917 72.238 C 63.914 71.700,63.408 71.406,63.333 71.321 C 63.288 71.269,63.137 71.175,63.000 71.114 C 62.862 71.052,62.604 70.908,62.426 70.793 C 61.495 70.190,60.339 69.500,60.260 69.500 C 60.210 69.500,59.663 69.177,59.043 68.781 C 58.424 68.386,57.804 68.008,57.667 67.941 C 57.398 67.811,57.334 67.774,55.576 66.724 C 52.048 64.617,50.152 63.500,50.104 63.500 C 50.074 63.500,49.382 63.087,48.566 62.582 C 47.751 62.077,46.971 61.616,46.833 61.557 C 45.953 61.179,46.000 61.769,46.000 51.002 C 46.000 45.531,46.047 41.008,46.105 40.951 C 46.222 40.834,46.644 41.061,49.750 42.915 M79.856 81.396 C 80.623 81.796,81.737 82.401,82.333 82.740 C 82.929 83.079,83.623 83.442,83.875 83.548 C 85.194 84.100,84.032 84.233,82.261 83.732 C 81.809 83.605,81.233 83.500,80.980 83.500 C 80.727 83.500,80.473 83.425,80.417 83.333 C 80.360 83.242,80.112 83.166,79.865 83.166 C 79.618 83.165,79.202 83.053,78.939 82.916 C 78.677 82.779,78.358 82.667,78.231 82.667 C 78.060 82.667,78.000 82.408,78.000 81.667 C 78.000 80.441,78.023 80.437,79.856 81.396 "
+                                    stroke="none" fill="#1e869c" fill-rule="evenodd"></path>
+                            </g>
+                        </svg>
+                        <div class="ml-4 text-lg leading-7 font-semibold">
+                            <a href="/dashboard" class="underline text-gray-900 dark:text-white">
+                                <h2>DEMO</h2>
                             </a>
-
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
                         </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
                 </div>
             </div>
+
+            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                                <path
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                </path>
+                            </svg>
+                            <div class="ml-4 text-lg leading-7 font-semibold"><a
+                                    href="https://badaso-docs.uatech.co.id/"
+                                    class="underline text-gray-900 dark:text-white">Badaso Documentation</a></div>
+                        </div>
+
+                        <div class="ml-12">
+                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                A complete documentation about badaso.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                        <div class="flex items-center">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                                    <title>Apps</title>
+                                    <rect x="64" y="64" width="80" height="80" rx="40" ry="40" fill="none"
+                                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                                    <rect x="216" y="64" width="80" height="80" rx="40" ry="40" fill="none"
+                                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                                    <rect x="368" y="64" width="80" height="80" rx="40" ry="40" fill="none"
+                                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                                    <rect x="64" y="216" width="80" height="80" rx="40" ry="40" fill="none"
+                                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                                    <rect x="216" y="216" width="80" height="80" rx="40" ry="40" fill="none"
+                                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                                    <rect x="368" y="216" width="80" height="80" rx="40" ry="40" fill="none"
+                                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                                    <rect x="64" y="368" width="80" height="80" rx="40" ry="40" fill="none"
+                                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                                    <rect x="216" y="368" width="80" height="80" rx="40" ry="40" fill="none"
+                                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                                    <rect x="368" y="368" width="80" height="80" rx="40" ry="40" fill="none"
+                                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                                </svg>
+                            </svg>
+                            <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ URL::to('/dashboard') }}"
+                                    class="underline text-gray-900 dark:text-white">Dashboard</a></div>
+                        </div>
+
+                        <div class="ml-12">
+                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                Badaso dashboard demo for testing.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+                        <div class="flex items-center">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                                <path
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
+                            </svg>
+                            <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">
+                                <a href="{{ URL::to('/post') }}"
+                                    class="underline text-gray-900 dark:text-white">Post Demo</a>
+                            </div>
+                        </div>
+
+                        <div class="ml-12">
+                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                <a href="https://github.com/uasoft-indonesia/badaso-post-module" target="_blank" class="text-blue-500">Post module</a> demo with <a href="https://github.com/uasoft-indonesia/badaso-post-theme" class="text-blue-500" target="_blank">post theme</a> installed.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+                        <div class="flex items-center">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                                <path
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                </path>
+                            </svg>
+                            <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">
+                                <a href="#"
+                                    class="underline text-gray-900 dark:text-white">Commerce Demo</a>
+                            </div>
+                        </div>
+
+                        <div class="ml-12">
+                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                <a target="_blank" href="https://github.com/uasoft-indonesia/badaso-commerce-module" class="text-blue-500">Commerce module</a> demo with <a target="_blank" href="https://github.com/uasoft-indonesia/badaso-commerce-theme" class="text-blue-500">commerce theme</a> installed.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
+                <div class="text-center text-sm text-gray-500 sm:text-left">
+                    <div class="flex items-center">
+                        <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
+                            <path
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+
+                        <a href="" class="ml-1 underline">
+                            Shop
+                        </a>
+
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
+                            <path
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+
+                        <a href="" class="ml-1 underline">
+                            Sponsor
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+                    Badaso v2.0.0 (PHP v{{ PHP_VERSION }})
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
