@@ -4,4 +4,4 @@ If you working on fresh project, you may create a new Laravel + Badaso project b
 
 ## Installation
 
-See the official [documentation for installation](https://badaso-docs.uatech.co.id/installation).
+See the official [documentation for installation](https://badaso-docs.uatech.co.id/getting-started/installation).
