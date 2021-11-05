@@ -53,11 +53,6 @@ return [
             'startup_view' => 'list',
             'max_size' => 50000, // size in KB
             'valid_mime' => [
-                'image/jpeg',
-                'image/pjpeg',
-                'image/png',
-                'image/gif',
-                'image/svg+xml',
                 'application/pdf',
                 'text/plain',
             ],
@@ -94,9 +89,15 @@ return [
 
     'disk' => env('FILESYSTEM_DRIVER', 'public'),
 
+    /*
+     * Will rename the file using uniqid()
+     */
     'rename_file' => false,
 
-    'rename_duplicates' => false,
+    /*
+     * Will rename the file if there is duplicated file
+     */
+    'rename_duplicates' => true,
 
     'alphanumeric_filename' => false,
 

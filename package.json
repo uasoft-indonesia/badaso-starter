@@ -54,6 +54,7 @@
         "vuesax": "^3.12.2",
         "vuex": "^3.1.1",
         "vuex-persistedstate": "^4.0.0-beta.1",
-        "weekstart": "^1.0.1"
+        "weekstart": "^1.0.1",
+        "body-scroll-lock": "^4.0.0-beta.0"
     }
 }
