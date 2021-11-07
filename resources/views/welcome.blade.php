@@ -450,7 +450,7 @@
                             </g>
                         </svg>
                         <div class="ml-4 text-lg leading-7 font-semibold">
-                            <a href="/dashboard" class="underline text-gray-900 dark:text-white">
+                            <a href="https://badaso-demo.uatech.co.id/" class="underline text-gray-900 dark:text-white">
                                 <h2>DEMO</h2>
                             </a>
                         </div>
@@ -506,13 +506,13 @@
                                         stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
                                 </svg>
                             </svg>
-                            <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ URL::to('/dashboard') }}"
+                            <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ URL::to('/badaso-dashboard') }}"
                                     class="underline text-gray-900 dark:text-white">Dashboard</a></div>
                         </div>
 
                         <div class="ml-12">
                             <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                Badaso dashboard demo for testing.
+                                Your badaso dashboard
                             </div>
                         </div>
                     </div>
@@ -526,7 +526,7 @@
                                 </path>
                             </svg>
                             <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">
-                                <a href="{{ URL::to('/post') }}"
+                                <a href="https://badaso-demo.uatech.co.id/post"
                                     class="underline text-gray-900 dark:text-white">Post Demo</a>
                             </div>
                         </div>
