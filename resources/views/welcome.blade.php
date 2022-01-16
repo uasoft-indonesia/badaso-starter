@@ -547,7 +547,7 @@
                                 </path>
                             </svg>
                             <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">
-                                <a href="#"
+                                <a href="https://badaso-demo.uatech.co.id/commerce"
                                     class="underline text-gray-900 dark:text-white">Commerce Demo</a>
                             </div>
                         </div>
