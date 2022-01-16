@@ -16,7 +16,7 @@ tasks:
       sed -i "s|APP_URL=|APP_URL=${GITPOD_WORKSPACE_URL}|g" .env &&
       sed -i "s|APP_URL=https://|APP_URL=https://8000-|g" .env &&
       composer install &&
-      npm i &&
+      yarn && yarn dev &&
       php artisan key:generate
     command: >
-      php -S 0.0.0.0:8000 -t public
+      php artisan migrate --seed && php artisan serve
