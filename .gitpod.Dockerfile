@@ -23,9 +23,9 @@ RUN sudo sed -i -e 's/^zpost_max_size\s*=.*/post_max_size = 32M/' /etc/php/8.0/a
 RUN sudo sed -i -e 's/^upload_max_filesize\s*=.*/upload_max_filesize = 32M/' /etc/php/8.0/apache2/php.ini
 
 # Install Composer 2.2.6
-RUN sudo wget https://getcomposer.org/download/2.2.6/composer.phar \
-    && sudo chmod +x composer.phar \
-    && sudo cp composer.phar /usr/bin/composer \
-    && sudo mv composer.phar /usr/local/bin/composer
+RUN sudo wget https://getcomposer.org/download/2.2.6/composer.phar
+RUN sudo sudo chmod +x composer.phar
+RUN sudo sudo cp composer.phar /usr/bin/composer
+RUN sudo sudo mv composer.phar /usr/local/bin/composer
 
 USER gitpod
