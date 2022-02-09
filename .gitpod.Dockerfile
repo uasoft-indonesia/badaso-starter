@@ -3,9 +3,9 @@ FROM gitpod/workspace-mysql
 RUN sudo apt update -y
 
 # Install ppa:ondrej/php PPA
-# RUN apt install -y software-properties-common
-# RUN add-apt-repository ppa:ondrej/php
-# RUN apt update -y
+RUN sudo apt install -y software-properties-common
+RUN sudo add-apt-repository ppa:ondrej/php -y
+RUN sudo apt update -y
 
 # Install PHP 8
 # RUN sudo apt install -y php-pear libapache2-mod-php8.0
