@@ -25,21 +25,23 @@ image:
   file: .gitpod.Dockerfile
 tasks:
   - name: Starting Project
-    init: mysql -u root -e "create database badaso" && 
-      cp .env.example .env && 
-      sed -i "s|APP_URL=|APP_URL=${GITPOD_WORKSPACE_URL}|g" .env && 
-      sed -i "s|APP_URL=https://|APP_URL=https://8000-|g" .env && 
-      composer install && 
-      npm install && 
+    init: mysql -u root -e "create database laravel" && \
+      cp .env.example .env && \
+      sed -i "s|APP_URL=|APP_URL=${GITPOD_WORKSPACE_URL}|g" .env && \
+      sed -i "s|APP_URL=https://|APP_URL=https://8000-|g" .env && \
+      composer install && \
+      npm install && \
       php artisan key:generate
-    command: php artisan badaso:setup --force && 
-      php artisan migrate --seed && 
-      php artisan badaso:admin admin@admin.com --name=admin --username=admin --password=admin --confirm_password=admin --create && 
-      npm run dev && 
+    command: php artisan badaso:setup --force && \
+      php artisan migrate --seed && \
+      php artisan badaso:admin admin@admin.com --name=admin --username=admin --password=admin --confirm_password=admin --create && \
+      npm run dev && \
       php artisan serve
 ports:
   - port: 8000
     onOpen: open-preview
+  - port: 3306
+    onOpen: ignore
 vscode:
   extensions:
     - bmewburn.vscode-intelephense-client
