@@ -20,4 +20,7 @@ RUN sudo sudo chmod +x composer.phar
 RUN sudo sudo cp composer.phar /usr/bin/composer
 RUN sudo sudo mv composer.phar /usr/local/bin/composer
 
+# Init Database
+RUN mysql -u root -e "create database badaso"
+
 USER gitpod
