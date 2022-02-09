@@ -3,14 +3,14 @@ FROM gitpod/workspace-mysql
 RUN sudo apt update -y
 
 # Install ppa:ondrej/php PPA
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:ondrej/php
-RUN apt-get update
+# RUN apt install -y software-properties-common
+# RUN add-apt-repository ppa:ondrej/php
+# RUN apt update -y
 
 # Install PHP 8
-RUN sudo apt-get install -y php-pear libapache2-mod-php8.0
-RUN sudo apt-get install -y php8.0-common php8.0-cli
-RUN sudo apt-get install -y php8.0-bz2 php8.0-zip php8.0-curl php8.0-gd php8.0-mysql php8.0-xml php8.0-dev php8.0-sqlite php8.0-mbstring php8.0-bcmath
+RUN sudo apt install -y php-pear libapache2-mod-php8.0
+RUN sudo apt install -y php8.0-common php8.0-cli
+RUN sudo apt install -y php8.0-bz2 php8.0-zip php8.0-curl php8.0-gd php8.0-mysql php8.0-xml php8.0-dev php8.0-sqlite php8.0-mbstring php8.0-bcmath
 RUN sudo php -v
 RUN sudo php -m
 
