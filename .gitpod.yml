@@ -16,6 +16,8 @@ tasks:
 ports:
   - port: 8000
     onOpen: open-preview
+  - port: 3306
+    onOpen: ignore
 vscode:
   extensions:
     - bmewburn.vscode-intelephense-client
