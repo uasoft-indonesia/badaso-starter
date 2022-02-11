@@ -8,9 +8,10 @@ tasks:
       composer install &&
       php artisan key:generate
     command: mysql -u root -e "create database badaso" &&
-      php artisan badaso:setup --force &&
+      php artisan badaso:setup &&
       npm install &&
-      php artisan migrate && php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder" &&
+      php artisan migrate &&
+      php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder" &&
       php artisan badaso:admin admin@admin.com --name=admin --username=admin --password=admin --confirm_password=admin --create && npm run dev &&
       php artisan serve
 ports:
