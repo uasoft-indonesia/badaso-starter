@@ -9,6 +9,7 @@ tasks:
       php artisan key:generate
     command: mysql -u root -e "create database badaso" &&
       php artisan badaso:setup &&
+      php artisan storage:link &&
       npm install &&
       php artisan migrate &&
       php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder" &&
