@@ -14,7 +14,9 @@ yarn-error.log
 /.vscode
 storage/api-docs
 
-# JS third party & generated 
+/badaso
+
+# JS third party & generated
 /node_modules
 /public/js/*
 
