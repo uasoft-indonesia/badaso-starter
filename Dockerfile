@@ -6,12 +6,12 @@ RUN apk --update-cache add ca-certificates
 
 # Install packages
 RUN apk --no-cache add php8 php8-fpm php8-opcache php8-openssl php8-curl \
-  nginx supervisor curl php8-json php8-phar php8-iconv \
-  php8-exif php8-sodium php8-pdo php8-mbstring php8-dom \
-  php8-zip php8-mysqli php8-sqlite3 php8-session php8-bcmath \
-  php8-common php8-gd php8-intl php8-fileinfo php8-pdo_mysql \
-  php8-tokenizer php8-xml php8-xmlwriter php8-simplexml \
-  php8-ctype php8-xmlreader nodejs npm
+    nginx supervisor curl php8-json php8-phar php8-iconv \
+    php8-exif php8-sodium php8-pdo php8-mbstring php8-dom \
+    php8-zip php8-mysqli php8-sqlite3 php8-session php8-bcmath \
+    php8-common php8-gd php8-intl php8-fileinfo php8-pdo_mysql \
+    php8-tokenizer php8-xml php8-xmlwriter php8-simplexml \
+    php8-ctype php8-xmlreader nodejs npm
 
 RUN ln -s /usr/bin/php8 /usr/bin/php
 
@@ -53,15 +53,16 @@ RUN php artisan config:clear
 RUN php artisan cache:clear
 RUN php artisan view:clear
 RUN php artisan route:clear
+RUN php artisan stroage:link
 RUN php artisan badaso:setup
 
 RUN npm install -g yarn
 RUN yarn && yarn prod
 
 RUN chown -R nobody.nobody /var/www/badaso && \
-  chown -R nobody.nobody /run && \
-  chown -R nobody.nobody /var/lib/nginx && \
-  chown -R nobody.nobody /var/log/nginx
+    chown -R nobody.nobody /run && \
+    chown -R nobody.nobody /var/lib/nginx && \
+    chown -R nobody.nobody /var/log/nginx
 
 # Switch to use a non-root user from here on
 USER nobody
