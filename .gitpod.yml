@@ -17,7 +17,7 @@ tasks:
       php artisan serve
 ports:
   - port: 8000
-    onOpen: open-preview
+    onOpen: open-browser
   - port: 3306
     onOpen: ignore
 vscode:
