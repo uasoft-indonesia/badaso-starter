@@ -506,7 +506,7 @@
                                         stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
                                 </svg>
                             </svg>
-                            <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ URL::to('/badaso-dashboard') }}"
+                            <div class="ml-4 text-lg leading-7 font-semibold"><a href="/badaso-dashboard"
                                     class="underline text-gray-900 dark:text-white">Dashboard</a></div>
                         </div>
 
