@@ -29,12 +29,12 @@ services:
     volumes:
       - /var/log/docker-data/badaso:/app/storage/logs
     environment:
-      - DB_CONNECTION=mysql
+      - DB_CONNECTION=${DB_CONNECTION}
       - DB_HOST=db
-      - DB_PORT=3306
-      - DB_DATABASE=badaso
-      - DB_USERNAME=sail
-      - DB_PASSWORD=password
+      - DB_PORT=${DB_PORT}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
       - db
     ports:
