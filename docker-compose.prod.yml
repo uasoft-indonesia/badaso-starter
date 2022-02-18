@@ -14,11 +14,11 @@ services:
     volumes:
       - ./badaso/:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: badaso
-      MYSQL_USER: sail
-      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_HOST: "%"
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     ports:
       - 3300:3306
   web:
