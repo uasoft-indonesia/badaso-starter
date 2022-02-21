@@ -589,7 +589,13 @@
                 </div>
 
                 <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                    Badaso v2.0.0 (PHP v{{ PHP_VERSION }})
+                    @php
+                        $composer_data = file_get_contents(base_path('composer.json'));
+                        $composer_data = json_decode($composer_data, true);
+                        $badaso_version = $composer_data['require']['badaso/core'];
+                        
+                    @endphp
+                    Badaso {{$badaso_version}} (PHP v{{ PHP_VERSION }})
                 </div>
             </div>
         </div>
