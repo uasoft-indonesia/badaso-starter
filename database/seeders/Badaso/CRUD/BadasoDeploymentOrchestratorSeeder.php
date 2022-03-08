@@ -18,5 +18,7 @@ class BadasoDeploymentOrchestratorSeeder extends Seeder
      */
     public function run()
     {
+        $this->seed(BookCRUDDataTypeAdded::class);
+        $this->seed(BookCRUDDataRowAdded::class);
     }
 }

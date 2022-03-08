@@ -57,7 +57,7 @@ RUN chmod +x /usr/local/bin/start-container
 RUN mkdir -p /var/www/html/storage \
     && mkdir -p /var/www/html/public 
 
-RUN chmod -R 755 /var/www/html/storage
+RUN chmod -R 777 /var/www/html/storage
 RUN chmod -R 755 /var/www/html/public
 
 EXPOSE 8000
