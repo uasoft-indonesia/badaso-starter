@@ -22,14 +22,14 @@ RUN apt-get update \
     && echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu impish main" > /etc/apt/sources.list.d/ppa_ondrej_php.list \
     && apt-get update \
     && apt-get install -y php8.1-cli php8.1-dev \
-       php8.1-pgsql php8.1-sqlite3 php8.1-gd \
-       php8.1-curl \
-       php8.1-imap php8.1-mysql php8.1-mbstring \
-       php8.1-xml php8.1-zip php8.1-bcmath php8.1-soap \
-       php8.1-intl php8.1-readline \
-       php8.1-ldap \
-       php8.1-msgpack php8.1-igbinary php8.1-redis php8.1-swoole \
-       php8.1-memcached php8.1-pcov php8.1-xdebug \
+    php8.1-pgsql php8.1-sqlite3 php8.1-gd \
+    php8.1-curl \
+    php8.1-imap php8.1-mysql php8.1-mbstring \
+    php8.1-xml php8.1-zip php8.1-bcmath php8.1-soap \
+    php8.1-intl php8.1-readline \
+    php8.1-ldap \
+    php8.1-msgpack php8.1-igbinary php8.1-redis php8.1-swoole \
+    php8.1-memcached php8.1-pcov php8.1-xdebug \
     && php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - \
     && apt-get install -y nodejs \
@@ -54,27 +54,13 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY php.ini /etc/php/8.1/cli/conf.d/99-sail.ini
 RUN chmod +x /usr/local/bin/start-container
 
+RUN mkdir -p /var/www/html/storage \
+    && mkdir -p /var/www/html/public 
 
-# COPY --chown=nobody . /var/www/html/
-# COPY .env.example .env
+RUN chmod -R 755 /var/www/html/storage
+RUN chmod -R 755 /var/www/html/public
 
-# RUN composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
-
-# RUN chmod -R 755 /var/www/html/storage
-# RUN chmod -R 755 /var/www/html/public
-
-# RUN composer dump-autoload
-
-# RUN php artisan key:generate
-# RUN php artisan config:clear
-# RUN php artisan cache:clear
-# RUN php artisan view:clear
-# RUN php artisan route:clear
-# RUN php artisan badaso:setup
-
-# RUN yarn && yarn prod
-
-EXPOSE 80
+EXPOSE 8000
 EXPOSE 443
 
 ENTRYPOINT ["start-container"]

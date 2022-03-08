@@ -1,13 +1,13 @@
 # For more information: https://laravel.com/docs/sail
 version: "3"
 services:
-  badaso-app:
+  badaso:
     build:
       context: ./docker/8.1
       dockerfile: Dockerfile
       args:
         WWWGROUP: "${WWWGROUP-1000}"
-    image: badaso-8.1/app
+    image: badaso
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
