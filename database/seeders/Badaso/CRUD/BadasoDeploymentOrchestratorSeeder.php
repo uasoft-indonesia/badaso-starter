@@ -18,5 +18,6 @@ class BadasoDeploymentOrchestratorSeeder extends Seeder
      */
     public function run()
     {
+
     }
 }
