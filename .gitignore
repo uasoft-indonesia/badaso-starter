@@ -12,3 +12,8 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# Package manager history (you can delete it for your own project)
+yarn.lock
+package-lock.json
+composer.lock
