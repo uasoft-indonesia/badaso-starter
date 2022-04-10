@@ -6,14 +6,14 @@ tasks:
       sed -i "s|APP_URL=|APP_URL=${GITPOD_WORKSPACE_URL}|g" .env &&
       sed -i "s|APP_URL=https://|APP_URL=https://8000-|g" .env &&
       composer install &&
-      php artisan key:generate &&
-      mysql -u root -e "create database badaso"
-    command: php artisan storage:link &&
+      php artisan key:generate
+    command: mysql -u root -e "create database badaso" &&
+      php artisan badaso:setup &&
+      php artisan storage:link &&
+      npm install &&
       php artisan migrate &&
       php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder" &&
-      php artisan badaso:admin admin@admin.com --name=admin --username=admin --password=admin --confirm_password=admin --create &&
-      npm install &&
-      npm run dev &&
+      php artisan badaso:admin admin@admin.com --name=admin --username=admin --password=admin --confirm_password=admin --create && npm run dev &&
       php artisan serve
 ports:
   - port: 8000
@@ -25,4 +25,3 @@ vscode:
     - bmewburn.vscode-intelephense-client
     - MehediDracula.php-namespace-resolver
     - junstyle.php-cs-fixer
-    - PKief.material-icon-theme

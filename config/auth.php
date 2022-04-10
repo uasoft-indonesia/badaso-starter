@@ -9,11 +9,6 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-            'hash' => false,
-        ],
         'badaso_guard' => [
             'driver' => 'jwt',
             'provider' => 'badaso_users',
