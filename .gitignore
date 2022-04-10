@@ -13,6 +13,15 @@ yarn-error.log
 /.idea
 /.vscode
 
+# Swagger generated
+storage/api-docs
+
+# JS third party & generated
+/public/js/*
+
+# CSS generated
+/public/css/*
+
 # Package manager history (you can delete it for your own project)
 yarn.lock
 package-lock.json
