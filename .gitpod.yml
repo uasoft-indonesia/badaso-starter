@@ -13,6 +13,7 @@ tasks:
       php artisan storage:link &&
       npm install &&
       npm run dev &&
+      mysql -u root -e "create database badaso" &&
       php artisan migrate &&
       php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder" &&
       php artisan badaso:admin admin@admin.com --name=admin --username=admin --password=admin --confirm_password=admin --create
