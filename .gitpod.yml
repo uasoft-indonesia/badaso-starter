@@ -11,10 +11,10 @@ tasks:
       php artisan storage:link &&
       npm install &&
       npm run dev &&
-      vendor/bin/sail up -d &&
-      vendor/bin/sail artisan migrate &&
-      vendor/bin/sail artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder" &&
-      vendor/bin/sail artisan badaso:admin admin@admin.com --name=admin --username=admin --password=admin --confirm_password=admin --create
+      php artisan migrate &&
+      php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder" &&
+      php artisan badaso:admin admin@admin.com --name=admin --username=admin --password=admin --confirm_password=admin --create
+      php artisan serve
 ports:
   - port: 8000
     onOpen: open-browser
