@@ -7,6 +7,8 @@ tasks:
       sed -i "s|APP_URL=https://|APP_URL=https://8000-|g" .env &&
       sed -i "s/DB_HOST=mysql/DB_HOST=127.0.0.1/g" .env &&
       sed -i "s/REDIS_HOST=redis/REDIS_HOST=127.0.0.1/g" .env &&
+      sed -i "s/DB_USERNAME=sail/DB_USERNAME=root/g" .env &&
+      sed -i "s/DB_PASSWORD=password/DB_PASSWORD=/g" .env
       composer install &&
       php artisan key:generate &&
       php artisan badaso:setup &&
