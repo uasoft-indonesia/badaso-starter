@@ -3,7 +3,7 @@ FROM gitpod/workspace-mysql
 RUN sudo apt update -y
 
 # Install redis
-RUN sudo apt install redis-server
+RUN sudo apt install -y redis-server
 
 # Install PHP 8
 RUN sudo apt install -y software-properties-common
