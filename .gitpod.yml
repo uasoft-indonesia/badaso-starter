@@ -5,6 +5,8 @@ tasks:
     command:  cp .env.example .env &&
       sed -i "s|APP_URL=http://localhost:8000|APP_URL=${GITPOD_WORKSPACE_URL}|g" .env &&
       sed -i "s|APP_URL=https://|APP_URL=https://8000-|g" .env &&
+      sed -i "s/DB_HOST=mysql/DB_HOST=127.0.0.1/g" .env &&
+      sed -i "s/REDIS_HOST=redis/REDIS_HOST=127.0.0.1/g" .env &&
       composer install &&
       php artisan key:generate &&
       php artisan badaso:setup &&
