@@ -402,6 +402,35 @@
                 ]
             }
         },
+        "/v1/auth/user": {
+            "get": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Get User",
+                "description": "Get the current user information",
+                "operationId": "User",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "402": {
+                        "description": "Payment Required"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/v1/file/upload/lfm": {
             "post": {
                 "tags": [
