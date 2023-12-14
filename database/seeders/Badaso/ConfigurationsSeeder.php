@@ -130,6 +130,26 @@ class ConfigurationsSeeder extends Seeder
                     'group' => 'adminPanel',
                     'can_delete' => 0,
                 ],
+                11 => [
+                    'key' => 'defaultRoleRegistration',
+                    'display_name' => 'Default Role Registration',
+                    'value' => 'customer',
+                    'details' => '{"items":[]}',
+                    'type' => 'select',
+                    'order' => 1,
+                    'group' => 'adminPanel',
+                    'can_delete' => 0,
+                ],
+                12 => [
+                    'key' => 'timeWaitResendToken',
+                    'display_name' => 'Time wait to resend token',
+                    'value' => '60',
+                    'details' => '{"items":[]}',
+                    'type' => 'number',
+                    'order' => 1,
+                    'group' => 'adminPanel',
+                    'can_delete' => 0,
+                ],
             ];
 
             foreach ($settings as $key => $value) {

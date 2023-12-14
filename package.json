@@ -25,6 +25,7 @@
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
         "resolve-url-loader": "^4.0.0",
+        "dompurify": "^3.0.5",
         "@johmun\/vue-tags-input": "^2.1.0",
         "@tinymce\/tinymce-vue": "^3",
         "body-scroll-lock": "^4.0.0-beta.0",

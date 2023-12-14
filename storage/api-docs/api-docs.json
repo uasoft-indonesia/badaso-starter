@@ -276,6 +276,10 @@
                                         "type": "string",
                                         "example": "johndoe"
                                     },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "0218967"
+                                    },
                                     "password": {
                                         "type": "string",
                                         "example": ""
@@ -283,6 +287,14 @@
                                     "passwordConfirmation": {
                                         "type": "string",
                                         "example": ""
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "New York City"
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "example": "Male"
                                     }
                                 },
                                 "type": "object"
