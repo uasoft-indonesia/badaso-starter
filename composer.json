@@ -1,7 +1,7 @@
 {
     "name": "badaso/starter",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Badaso starter project.",
     "keywords": [
         "framework",
         "laravel"
